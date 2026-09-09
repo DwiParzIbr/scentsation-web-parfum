@@ -6,6 +6,15 @@ import AppShell from '@/components/AppShell';
 export const metadata: Metadata = {
   title: 'Scentsation Decant - Parfum Original Versi Mini',
   description: 'Nikmati wewangian original dalam ukuran decant 2ml, 3ml, 5ml, dan 10ml. 100% murni original.',
+  icons: {
+    icon: [
+      { url: '/favicon.png', type: 'image/png' },
+      { url: '/favicon.ico' },
+    ],
+    apple: [
+      { url: '/favicon.png' },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -18,6 +27,9 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="any" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
