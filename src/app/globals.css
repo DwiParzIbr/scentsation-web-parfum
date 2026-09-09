@@ -1,0 +1,335 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-sans), 'Plus Jakarta Sans', sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.serif-title {
+  font-family: var(--font-serif), 'Playfair Display', serif;
+}
+
+/* Custom Glassmorphism */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* HIGH-END LUXURY DARK MODE STYLES */
+html.dark, 
+html.dark body {
+  background-color: #0b0f17 !important;
+  color: #f8fafc !important;
+}
+
+/* Card & Box Containers in Dark Mode */
+html.dark .bg-white {
+  background-color: #131b2e !important;
+  color: #f8fafc !important;
+  border-color: #1e293b !important;
+}
+
+html.dark .bg-slate-50, 
+html.dark .bg-slate-100 {
+  background-color: #1a233a !important;
+  color: #f8fafc !important;
+  border-color: #2e3d5c !important;
+}
+
+/* Slate 900 Elements (Navbar, Dark Buttons, Sidebars) */
+html.dark button.bg-slate-900,
+html.dark a.bg-slate-900,
+html.dark div.bg-slate-900 {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+  border-color: #334155 !important;
+}
+
+html.dark button.bg-slate-900:hover,
+html.dark a.bg-slate-900:hover {
+  background-color: #334155 !important;
+}
+
+/* Text Contrast */
+html.dark .text-slate-900, 
+html.dark .text-slate-800, 
+html.dark .text-slate-700 {
+  color: #f8fafc !important;
+}
+
+html.dark .text-slate-600, 
+html.dark .text-slate-500,
+html.dark .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+/* Borders */
+html.dark .border-slate-200, 
+html.dark .border-slate-100,
+html.dark .border-slate-300 {
+  border-color: #1e293b !important;
+}
+
+/* Form Inputs & Selects */
+html.dark input, 
+html.dark select, 
+html.dark textarea {
+  background-color: #1a233a !important;
+  color: #ffffff !important;
+  border-color: #334155 !important;
+}
+
+html.dark input:focus, 
+html.dark select:focus, 
+html.dark textarea:focus {
+  border-color: #d97706 !important;
+  box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.25) !important;
+}
+
+/* STAR RATINGS & NUMERIC SCORES IN DARK MODE */
+html.dark .text-amber-500,
+html.dark .text-amber-400,
+html.dark .text-amber-600,
+html.dark .text-amber-700,
+html.dark .text-amber-800,
+html.dark .text-amber-900 {
+  color: #fbbf24 !important;
+}
+
+html.dark svg.fill-amber-500,
+html.dark svg.text-amber-500,
+html.dark .fill-amber-500 {
+  fill: #fbbf24 !important;
+  color: #fbbf24 !important;
+}
+
+/* RESET BUTTONS & LIGHT SLATE BUTTONS IN ADMIN & PUBLIC PAGES */
+html.dark button.bg-slate-100,
+html.dark button.bg-slate-200,
+html.dark button.bg-slate-300,
+html.dark a.bg-slate-100,
+html.dark a.bg-slate-200 {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+  border-color: #475569 !important;
+}
+
+html.dark button.bg-slate-100:hover,
+html.dark button.bg-slate-200:hover,
+html.dark a.bg-slate-100:hover,
+html.dark a.bg-slate-200:hover {
+  background-color: #334155 !important;
+  color: #ffffff !important;
+}
+
+/* Badges & Soft Color Panels in Dark Mode */
+html.dark .bg-amber-50, 
+html.dark .bg-amber-100 {
+  background-color: rgba(217, 119, 6, 0.15) !important;
+  color: #fbbf24 !important;
+  border-color: rgba(217, 119, 6, 0.3) !important;
+}
+
+html.dark .text-amber-800,
+html.dark .text-amber-900,
+html.dark .text-amber-950 {
+  color: #fef3c7 !important;
+}
+
+html.dark .bg-emerald-50, 
+html.dark .bg-emerald-100 {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+  color: #34d399 !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+html.dark .bg-blue-50, 
+html.dark .bg-blue-100 {
+  background-color: rgba(59, 130, 246, 0.15) !important;
+  color: #60a5fa !important;
+  border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+html.dark .bg-purple-50, 
+html.dark .bg-purple-100 {
+  background-color: rgba(168, 85, 247, 0.15) !important;
+  color: #c084fc !important;
+  border-color: rgba(168, 85, 247, 0.3) !important;
+}
+
+html.dark .bg-red-50, 
+html.dark .bg-red-100,
+html.dark .bg-red-50\/70 {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+  color: #fca5a5 !important;
+  border-color: rgba(239, 68, 68, 0.4) !important;
+}
+
+html.dark .text-red-900,
+html.dark .text-red-800,
+html.dark .text-red-700 {
+  color: #fca5a5 !important;
+}
+
+/* Modals & Dialog Overlays */
+html.dark .glass-panel {
+  background: rgba(19, 27, 46, 0.9) !important;
+  border-color: rgba(30, 41, 59, 0.8) !important;
+}
+
+/* Admin Sidebar in Dark Mode */
+html.dark aside {
+  background-color: #0d1322 !important;
+  border-color: #1e293b !important;
+}
+
+/* Fail-Proof Print Rule: Full Item Printing & No Scrollbars */
+@media print {
+  @page {
+    margin: 0.8cm;
+    size: A4 portrait;
+  }
+
+  /* Completely hide scrollbars during print */
+  * {
+    overflow: visible !important;
+    max-height: none !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  ::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    height: auto !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide admin sidebar, navigation bars, and print-hidden elements */
+  aside,
+  nav,
+  header,
+  .print\:hidden,
+  .print-hide {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: transparent !important;
+    overflow: visible !important;
+  }
+
+  /* Expose printable resi container if modal open */
+  .printable-resi-container {
+    display: block !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    overflow: visible !important;
+  }
+
+  .printable-resi-document {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 12px !important;
+    padding: 0.8cm !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  /* Printable Pricelist Document rule */
+  .printable-pricelist-document {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0.4cm !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+/* HIGH-PERFORMANCE SCROLL REVEAL UTILITIES */
+.sr-hidden {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sr-fade-up {
+  transform: translateY(28px);
+}
+
+.sr-fade-down {
+  transform: translateY(-28px);
+}
+
+.sr-fade-left {
+  transform: translateX(28px);
+}
+
+.sr-fade-right {
+  transform: translateX(-28px);
+}
+
+.sr-fade-in {
+  transform: translateY(0);
+}
+
+.sr-zoom-in {
+  transform: scale(0.92);
+}
+
+.sr-scale-up {
+  transform: scale(0.85);
+}
+
+/* Revealed active state */
+.sr-show {
+  opacity: 1 !important;
+  transform: translate(0, 0) scale(1) !important;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .sr-hidden {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+

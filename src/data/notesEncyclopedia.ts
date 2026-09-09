@@ -1,0 +1,487 @@
+export interface NoteGroupInfo {
+  id: string;
+  name: string;
+  nameIndo: string;
+  emoji: string;
+  description: string;
+  descriptionIndo: string;
+  notes: string[];
+}
+
+export const FRAGRANCE_NOTE_GROUPS: NoteGroupInfo[] = [
+  {
+    id: 'citrus',
+    name: 'CITRUS SMELLS',
+    nameIndo: 'Aroma Sitrus & Buah Asam',
+    emoji: '🍋',
+    description:
+      'Most often by citrus in perfumery we describe the whole spectrum of hesperidic fruits (Hesperidia). Citruses provide a refreshing and effervescent quality to fragrances, accounting for the top note which tickles our noses with pleasure. They lend an air of easy elegance, optimism, and clean vitality.',
+    descriptionIndo:
+      'Kategori aroma sitrus (hesperidic) memberikan nuansa segar, gembira, dan elegan. Biasanya mengisi Top Notes pada parfum untuk memberikan impresi awal yang menyegarkan pikiran dan membangkitkan keharuman yang bersih.',
+    notes: [
+      'Bergamot', 'Bigarade', 'Bitter Orange', 'Black Lemon', 'Blood Orange', "Buddha's hand",
+      'Calamansi', 'Candied Lemon', 'Chen Pi', 'Chinotto', 'Citron', 'Citrus Water', 'Citruses',
+      'Clementine', 'Crystalfizz', 'Finger Lime', 'Grapefruit', 'Grapefruit Leaf', 'Grapefruit Peel',
+      'Grapefruit Soda', 'Green Tangerine', 'Hassaku', 'Hatkora Lemon', 'Kabosu', 'Kaffir Lime',
+      'Kumquat', 'Lemon', 'Lemon Balm', 'Lemon Myrtle', 'Lemon Tree', 'Lemon Verbena', 'Lemon Zest',
+      'Lemongrass', 'Lime', 'Limetta', 'Litsea Cubeba', 'Mandarin Orange', 'Mandora',
+      'Methyl Pamplemousse', 'Murcott', 'Neroli', 'Orange', 'Palestinian Sweet Lime', 'Perfume lemon',
+      'Petitgrain', 'Pokan', 'Pomelo', 'Rangpur', 'Red Mandarin', 'Rind Bergamot', 'Shiikuwasha',
+      'Sudachi citrus', 'Tangelo', 'Tangerine', 'Tangerine Zest', 'Yuzu'
+    ]
+  },
+  {
+    id: 'fruits',
+    name: 'FRUITS, VEGETABLES AND NUTS',
+    nameIndo: 'Buah-Buahan, Sayuran & Kacang',
+    emoji: '🍎',
+    description:
+      'Fruity notes beyond citrus provide succulent, refreshing, and succulent textures. Vegetables add unique nuances while nuts like almond, hazelnut, and pistachio serve as beautiful cozy anchors to earthy and woody materials.',
+    descriptionIndo:
+      'Aroma buah non-sitrus memberikan tekstur yang manis juicy dan menyegarkan. Aroma sayuran menambah kesan alami unik, sedangkan aroma kacang (seperti almond & hazelnut) memberikan kehangatan lembut yang menenangkan.',
+    notes: [
+      'Acai Berry', 'Acerola', 'Acorn', 'Akebia fruit', 'Almond', 'Apple', 'Apple Juice', 'Apple Pulp',
+      'Apple Sherbet', 'Apricot', 'Arctic Bramble', 'Argan', 'Artichoke', 'Ashberry', 'Banana',
+      'Banana peel', 'Barberry', 'Bearberry', 'Beetroot', 'Berries', 'Bitter melon', 'Black Cherry',
+      'Black Currant', 'Black Sapote', 'Black Walnut', 'Blackberry', 'Blackthorn', 'Blueberry',
+      'Boysenberry', 'Brazil Nut', 'Breadnut', 'Buriti', 'Burning Cherry', 'Cabernet Grape',
+      'Calafate', 'Candlenut', 'Cantaloupe', 'Carambola (Star Fruit)', 'Carrot', 'Cashew',
+      'Cassowary Fruit', 'Cauliflower', 'Cepes', 'Chayote', 'Cherimoya', 'Cherry', 'Cherry Jam',
+      'Chestnut', 'Chia Seed', 'Chickpeas', 'Chinese Magnolia', 'Cider Apple', 'Cloudberry',
+      'Coco De Mer', 'cocoa shell', 'Coconut', 'Coconut Water', 'Cogumelo Porcino', 'Conifer',
+      'Corn', 'Corn Silk', "Count's Fruit", 'Cranberry', 'Crimson Fruits', 'Cucumber', 'Cupuaçu',
+      'Currant Leaf and Bud', 'Cyperus Scariosus', 'Daikon Radish', 'Dark Plum Wu Mei',
+      'Decalepis hamiltonii', 'Dewberry', 'Dried Apple Crisp', 'Dried Apricot', 'Dried Fruits',
+      'Durian', 'Elderberry', 'Feijoa Fruit', 'Fig', 'Fig Leaf', 'Fig Milk', 'Filbertone',
+      'Flowering Gourd', 'Forest Fruits', 'Frosted Berries', 'Fruit Salad', 'Fruity Notes',
+      'Fruity Powder', 'Fuji Apple', 'Gariguette Strawberry', 'Genipapo', 'Goji Berries',
+      'Goldenberry', 'Gooseberry', 'Grains', 'Grape Seed', 'Grapes', 'Green Anjou Pears',
+      'Green Banana', 'Green Grape', 'Green Pear', 'Green Plum', 'Greengage', 'Ground Cherry',
+      'Guarana', 'Guava', 'Guava Nectar', 'Hazelnut', 'Hog Plum', 'Honeydew Melon', 'Isabella Grape',
+      'Jabuticaba', 'Jackfruit', 'Japanese Loquat', 'Jobs Tears', 'Kiwano', 'Kiwi', 'Kumbaru',
+      'Lingonberry', 'Litchi', 'Loganberry', 'Longan Berries', 'Lotus Seed', 'Lucuma', 'Macadamia',
+      'Mahonia', 'Malt', 'Mamey', 'Mango', 'Mangosteen', 'Maninka', 'Maqui Berry', 'Marian Plum',
+      'Medlar', 'Melon', 'Millet', 'Mirabelle', 'Miracle Berry', 'Moepel Accord', 'Mulberry',
+      'Mung Bean', 'Mushroom', 'Nalca', 'Nashi Pear', 'Nectarine', 'Nutty Notes', 'Okra Seeds',
+      'Olive', 'Papaya', 'Passionfruit', 'Pea', 'Peach', 'Peanut', 'Pear', 'Pecan', 'Persimmon',
+      'Peruvian Pepper', 'Pine Nuts', 'Pineapple', 'Pinot Noir Grapes', 'Pistachio', 'Pitahaya',
+      'Pitanga', 'Plantain', 'Plum', 'Pomegranate', 'Potato', 'Prickly Pear', 'Pumpkin',
+      'Purple Yam', 'Quandong Desert Peach', 'Quenepa', 'Quince', 'Radish', 'Rambutan', 'Raspberry',
+      'Red Apple', 'Red Berries', 'Red Currant', 'Red Fruits', 'Red Fruits Smoothie', 'Red Mulberry',
+      'Rhubarb', 'Roasted Nuts', 'Rose Apple', 'Rowanberry', 'Salak', 'Santol', 'Sapodilla',
+      'Sarsaparilla', 'Sea Buckthorn', 'Seriguela', 'Serrano Pepper', 'Shea Butter', 'Shea Nuts',
+      'Silverberry', 'Snowberry', 'Sour Cherry', 'Soursop', 'Soybean', 'Squash', 'Star Apple',
+      'Strawberry', 'Strawberry Jam', 'SugarLoaf Pineapple', 'Tamanu', 'Tapioca', 'Taro', 'Tayberry',
+      'Tomato', 'Tropical Fruits', 'Tropicalone', 'Tucumã', 'Vegetal Notes', 'Walnut', 'Walnut Milk',
+      'Water Fruit', 'Watermelon', 'Wattleseed', 'White Currant', 'White Grape', 'White Mulberry',
+      'Wild Strawberry', 'Williams Pear', 'Winterberry', 'Wintermelon', 'Wolfberry', 'Yellow Cherry',
+      'Yellow Fruits', 'Yuca Cassava', 'Yumberry', 'Zucchini'
+    ]
+  },
+  {
+    id: 'flowers',
+    name: 'FLOWERS',
+    nameIndo: 'Bunga-Bungan (Floral)',
+    emoji: '🌸',
+    description:
+      'Directly smelling of fragrant blossoms, floral notes add romance, elegance, and natural beauty. From rose and jasmine to heliotrope and ylang-ylang, flowers form the heart of countless classic and modern perfumes.',
+    descriptionIndo:
+      'Aroma kelopak bunga memberikan kesan romantis, anggun, dan feminin mewah. Mulai dari Mawar, Melati, Lavender, hingga Orchid yang memikat hati pada Heart Notes parfum.',
+    notes: [
+      'Abelia', 'Acacia', 'Acerola Blossom', 'African Marigold', 'Aglaia', 'Alba Rose', 'Albizia',
+      'Almond Blossom', 'Alpinia', 'Alstroemeria', 'Althaea', 'Alumroot', 'Alyssum', 'Amarillys',
+      'Amazon Moonflower', 'Amethyst Flower', 'Anemone', "Angel's Trumpet", 'Apple Blossom',
+      'Apricot Blossom', 'Ashoka Flower', 'Asian Clintonia', 'Astragalus', 'Azalea', 'Azteca Lily',
+      'Baby’s Breath', 'Banana Flower', 'Banksia Australian', 'Begonia', 'Belladona', 'Bellflower',
+      'Bergamot Blossom', 'Bird cherry', 'Black Currant Blossom', 'Blackberry Blossom', 'Blue Lilies',
+      'Blue Pea Flower', 'Blue Poppy', 'Bluebell', 'Bottlebrush', 'Bougainvillea', 'Bouvardia',
+      'Bread Flower', 'Bromelia', 'Buddleia', 'Butomus Umbellatus', 'Buttercup', 'Cacao Blossom',
+      'Cactus Blossom', 'Calendula', 'Calla Lily', 'Camellia', 'Campion Flower', 'Cananga',
+      'Canna flower', 'Cannonball Flower', 'Carambola Blossom', 'Cardamom Flower', 'Carnation',
+      'Cashew Flower', 'Celosia', 'Chai Hu', 'Chamomile', 'Champaca', 'Cherry Blossom',
+      'Chimonanthus or Wintersweet', 'China Rose', 'Chinotto blossom', 'Chocolate Flower',
+      'Christmas Tree or Flame Tree', 'Chrysanthemum', 'Cistus Incanus', 'Clematis', 'Clover',
+      'Coconut Blossom', 'Coffee Blossom', 'Coriander Flower', 'Cornflower Sultan Seeds', 'Corydalis',
+      'Cosmos Flower', 'Costus', 'Cotton Flower', 'Creamy Flowers', 'Crinum Lily', 'Cucumber Flower',
+      'Cyclamen', 'Dahlia', 'Daisy', 'Dandelion', 'Daphne', 'Daylily', 'Deadnettle', 'Delonix',
+      'Desert Rose', 'Dianthus', 'Diviniris', 'Dogwood Blossom', 'Dove Tree', 'Dried Rose',
+      "Dyer's Greenweed", 'Edelweiss', 'Eglantine Rose', 'Elderflower', 'Encian', 'Erigeron (Fleabane)',
+      'Euphorbia', 'Eustoma | Lisianthus', 'Evergreen', 'Field Scabious', 'Fig Blossom', 'Fire Lily',
+      'Flamingo Flower (Anthurium)', 'Flax', 'Floral Notes', 'Forget Me Not', 'Fragonia', 'Freesia',
+      'French Marigold', 'Fringed Pink', 'Fuchsia', 'Garlic Blossom', 'Geranium', 'Gerbera',
+      'Gladiolus', 'Goldenrod', 'Gorse', 'Grapeflower', 'Great Burnet', 'Green Nard', 'Green Petals',
+      'Green Tea Flower', 'Grevillea', 'Guava Blossom', 'Guayacan', 'Gustavia Flower', 'Hawthorn',
+      'Hazel Blossom', 'Heather', 'Heliotrope', 'Hellabore Flower', 'Hemlock', 'Hibiscus',
+      'Hoary Stock', 'Holly Flower', 'Hollyhock', 'Honeybush or Cyclopia', 'Honeydew Blossom',
+      'Hortensia', 'Hoya Carnosa Wax Plant', 'Hyacinth', 'Hyssop', 'Impatiens', 'Inula', 'Iris',
+      'Iris Butter', 'Iris Pallida', 'Jacaranda', 'Jade Flower', 'Jarana Flower', 'Jasmine Orchid',
+      'Jujube Blossom', 'Kadam', 'Kangaroo Paw', 'Kanuka', 'Kanzan Cherry', 'Karmaflor®',
+      'Kiwi blossom', 'Kudzu', 'Laburnum', 'Lady of the Night Flower', 'Lady Slipper Orchid',
+      'Lamduan Flower', 'Lamprocapnos', 'Lantana', 'Larkspur', 'Laurel Blossom', 'Lavender',
+      'Leatherwood', 'Ledum', 'Liatrix', 'Licorice Flower', 'Lilac', 'Lily-of-the-Valley',
+      'Lime (Linden) Blossom', 'Litchi Blossom', 'Longoza', 'Lotus', 'Lupin', 'Lydia Broom',
+      'Lysylang', 'Macadamia Flower', 'Madonna Lily', 'Magnolia', 'Magnolia Brooklynensis',
+      'Magnolia Leaf', 'Mahonial', 'Malva', 'Mango Blossom', 'Mariposa Lily', 'Mayflower',
+      'Meadowsweet', 'Melilotus', 'Melissa Flower', 'Michelia', 'Michelia leaf', 'Mignonette',
+      'Milkweeds', 'Mimosa', 'Mimusops Elengi', 'Mirabilis', 'Monarda', 'Monoi Oil', 'Moringa Blossom',
+      'Morning Glory Flower', 'Moss Flox', 'Myrtle', 'Narcissus', 'Nard', 'Nasturtium',
+      'Nectarine Blossom', 'Nerium Oleander', 'Nigella', 'Night Blooming Jasmine', 'Nom Maew',
+      'Olive flower', 'Opium', 'Orange Cassia Tree', 'Orange Flower Water', 'Orange Jasmine',
+      'Orchard Blossom', 'Orchid', 'Orchid Black Diamond', 'Orchid Cactus', 'Orchid Pink Leopard',
+      'Ornithogalum', 'Orris Root', 'Osmanthus', 'Osmanthus milk', 'Pansy', 'Papaya Blossom',
+      'Paramela', 'Passion Flower', 'Pataqueira', 'Peach Blossom', 'Pear Blossom', 'Pelargonium',
+      'Peony', 'Periwinkle', 'Petalia', 'Petunia', 'Phlox', 'Pikul Flower', 'Pineapple Blossom',
+      'Pink Flamingo Heliconia', 'Pink Lily', 'Pinwheel Flower', 'Pitahaya Flower', 'Pittosporum',
+      'Plum Blossom', 'Plumeria', 'Poinsettia', 'Pomegranate Blossom', 'Poppy', 'Portlandia',
+      'Primrose', 'Princess Tree (Paulownia)', 'Privet', 'Protea', 'Prunella', 'Purple Coneflower',
+      'Queen of the Night Flower', 'Rangoon Creeper', 'Raspberry Blossom', 'Redwood Flower',
+      'Reseda', 'Rhododendron', 'Rosa Alba', 'Rosa Rubiginosa', 'Rose', 'Rose Hip',
+      'Rose Japanese (Hamanasu)', 'Rose Mallow', 'Rosebay Willowherb', 'Rosebud', 'Roselle',
+      'Rosyfolia', 'Safflower', 'Sainfoins', 'Sand Lily', 'Sandalwood Flower', 'Santolina',
+      'Saucer Magnolia', 'Sea Daffodil', 'Siberian Rhododendron', 'Silk Tree Blossom',
+      'Silverthorn Flower', 'Skeleton Flower', 'Smoketree', 'Snakeroot', 'Snow Lotus', 'Snowdrops',
+      "Solomon's Seal", 'Sophora Toromiro Flower', 'Sour Cherry Blossom', 'Spanish Broom', 'Spiraea',
+      "St. John's Wort", 'Star Magnolia', 'Starflower', 'Strawberry Flower', 'Strelitzia',
+      'Strobilanthes Callosa', 'Sunflower', 'Sweet Pea', 'Taif Rose', 'Tamarisk', 'Tobacco Blossom',
+      'Transparent Flowers', 'Trillium', 'Tulip', 'Tussilago farfara', 'Vanilla Bahiana', 'Vervain',
+      'Viburnum', 'Violet', 'Violet Woodsorrel', 'Wallflower', 'Waratah', 'Water Flowers',
+      'Water Hyacinth', 'Water Lily', 'Weeping Cherry Blossom', 'White Champaca', 'White Dahlia',
+      'White Ginger Lily', 'White Lace Flower', 'White Tea Blossom', 'Wildflowers', 'Winter Daphne',
+      'Wisteria', 'Wrightia', 'Yellow Bells', 'Yellow Flowers', 'Ylang-Ylang', 'Yunnan Osmanthus',
+      'Yuzu Flower', 'Zinnia'
+    ]
+  },
+  {
+    id: 'white_flowers',
+    name: 'WHITE FLOWERS',
+    nameIndo: 'Bunga Putih (White Florals)',
+    emoji: '🤍',
+    description:
+      'A distinctive sub-category of florals typified by orange blossom, jasmine, gardenia, tuberose, and frangipani. White flowers have the most narcotic, opulent, and intensely intoxicating scent profile in perfumery.',
+    descriptionIndo:
+      'Kelompok bunga putih murni seperti Jasmine, Gardenia, Tuberose (Sedap Malam), dan Orange Blossom yang memiliki keharuman kaya, sensual, manis tajam, dan sangat memikat.',
+    notes: [
+      'Arum Lily', 'Belanis', 'Black Locust', 'Boronia', 'Carissa', 'Datura', 'Frangipani', 'Gardenia',
+      'Grapefruit Blossom', 'Honeysuckle', 'Jasmine', 'Karo-Karounde', 'Lemon Blossom', 'Lily',
+      'Mandarin Orange Blossom', 'Melati', 'Mock Orange', 'Moon Flower', 'Night Blooming Cereus',
+      'Orange Blossom', 'Stephanotis', 'Tangerine Blossom', 'Tiare Flower', 'Tuberose', 'White Flowers',
+      'White Tobacco'
+    ]
+  },
+  {
+    id: 'greens',
+    name: 'GREENS, HERBS AND FOUGERES',
+    nameIndo: 'Dedaunan, Herbal & Fougère',
+    emoji: '🌿',
+    description:
+      'Evoking snapped leaves, freshly cut grass, aromatic cooking herbs, and damp ferny forests. Green notes provide crisp piquant freshness while herbs and fougère accords add earthy, aromatic, and classic masculine sophistication.',
+    descriptionIndo:
+      'Aroma dedaunan hijau yang baru dipetik, rumput segar, teh aromatic, serta kombinasi fougère (hutan hijau berembun) yang memberikan kesan segar alami, menenangkan, dan klasik.',
+    notes: [
+      'Achillea Olympus', 'Acronychia pedunculata', 'Agave', 'Algae', 'Almaciga', 'Aloe Vera',
+      'Ammophila (Beach Grass)', 'Angelica', 'Angelica Root', 'Apple Mint', 'Arnica', 'Aromatic Notes',
+      'Artemisia', 'Asparagus', 'Assam Tea', 'Avocado', 'Azolla (Water Fern)', 'Bagas de Zimbro',
+      'Banana Leaf', 'Barley', 'Barrenwort', 'Basil', 'Bay Essence', 'Beachheather', 'Behini Tree',
+      'Betel Leaf', 'Bigarane™', 'Black Currant Leaf', 'Blackberry Leaf', 'Blonde Tobacco', 'Blue Bugle',
+      'Borage', 'Borneol', 'Bran', 'Buchu or Agathosma', 'Buckwheat', 'Buckwheat Tea', 'Bulletwood Tree',
+      'Bulrush', 'Burdock', 'Cactus', 'Calamus', 'Calycanthus', 'Cangzhu', 'Cannabis', 'Caper', 'Capitiú',
+      'Carnation Leaves', 'Catnip', 'Cedar Leaves', 'Cedar Roots', 'Celery', 'Celery Seeds',
+      'Centella Asiatica', 'Chaparral', 'Cherry Leaf', 'Chicory', 'Chinese Medicinal Herbs', 'Chive',
+      'Chlorophyll', 'Chuan Xiong', 'Cilantro', 'Citron Leaf', 'Clary Sage', 'Coca', 'Coleus',
+      'Creosote Bush', 'Crithmum', 'Culantro', 'Davana', 'Deer Tongue Grass', 'Dried Fallen Leaves',
+      'Duck Poo Oolong', 'Earl Grey Tea', 'Fermented Tea', 'Fern', 'Flouve', 'Fo Ti (Ho Shou Wu)',
+      'Forest Foliage', 'Fougère Accord', 'Fresh Evergreen', 'Fresh note', 'Frostwood™',
+      'Gajumaru Banyan', 'Galbanum', 'Garlic', 'Genmaicha', 'Geranium Macrorrhizum (Zdravetz)',
+      'Gingergrass', 'Ginkgo', 'Ginseng', 'Grape Leaves', 'Grass', 'Green Branches', 'Green Chilli',
+      'Green Forest', 'Green Notes', 'Green Pepper', 'Green Sap', 'Gromwell', 'Guao or Maiden Plum',
+      'Gyokuro Tea', 'Hat Straw', 'Hay', 'Henna', 'Hojicha', 'Hops', 'Horseweed', 'Huang Lian',
+      'Immortelle', 'Ivy', 'Jambu', 'Jatamansi or Spikenard', 'Jin Xuan Tea Leaves', 'Jojoba',
+      'Juniper', 'Katrafay', 'Katsura Leaf', 'Keemun Tea', 'Kewra', 'Khella', 'Kunzea', 'Laminaria',
+      'Lantana leaf', 'Lapsang Souchong Tea', 'Laurissilva Forest', 'Lesser Calamint', 'Lettuce',
+      'Lily-of-the-Valley Leaves', 'Limnophila Aromatica', 'Linaloe Berry', 'Lishan Tea',
+      'Longjing Tea', 'Lovage Root', 'Ma-Kwaen', 'Mandrake', 'Marigold', 'Marjoram', 'Matcha Tea',
+      'Mate', 'Melilot or Sweet Clover', 'Menthol', 'Mimosa Leaves', 'Mint', 'Mistletoe', 'Mugwort',
+      'Naswar', 'Nettle', 'Nut Grass', 'Oak Leaves', 'Oat', 'Olive Leaf', 'Olymra plant accord',
+      'Oolong Tea', 'Orchid Leaf', 'Oregano', 'Palm Leaf', 'Palmarosa', 'Pandan Leaf', 'Pandanus',
+      'Parsley', 'Peach Leaf', 'Pear Leaf', 'Pennyroyal', 'Pesto', 'Petrichor', 'Peyote',
+      'Phoenix Dan Cong Oolong', 'Physcool®', 'Pinesap', 'Polygonum', 'Portulaca or Pigweed',
+      'Posidonia', 'Powdered Leaf', "Pu'er Tea", 'Purslane', 'Raspberry leaf', 'Red Algae', 'Reed',
+      'Rice', 'Rooibos Red Tea', 'Roots', 'Rose Leaf', 'Rose Thorn', 'Rosemary', 'Roseroot',
+      'Rosewood Leaf', 'Rue', 'Rumex', 'Rye', 'Sabah Snake Grass', 'Sage', 'Samphire', 'Sansevieria',
+      'Sap', 'Satureja', 'Saw Palmetto', 'Seaweed', 'Sedge', 'Senecio', 'Shiso',
+      'Sideritis Mountain Tea', 'Silk Vine or Milk Broom', 'Siriuba Tree', 'Skunk Cabbage',
+      'Snake Plant', 'Soapwort', 'Spearmint', 'Spinach', 'Stems Greens', 'Strawberry Gum',
+      'Strawberry Leaf', 'Strawberry Plant', 'Sugandha Kokila', 'Sundew', 'Swartzia', 'Sweet Grass',
+      'Tangerine Leaves', 'Tansy', 'Tarragon', 'Tea', 'Terebinth Tree', 'Thai Tea', 'Thistle',
+      'Thyme', 'Ti Leaf (Cordyline)', 'Tieguanyin Tea', 'Tobacco', 'Tomato Leaf', 'Torreya',
+      'Trees', 'Tulsi', 'Tumbleweed', 'Turnera Diffusa (Damiana)', 'Valerian', 'Vanilla Leaves',
+      'Vine', 'Violet Leaf', 'Water Lily Leaf', 'Wheat', 'White Meranti', 'Wild carrot',
+      'Wild garlic leaf', 'Willow-Leaved', 'Winter Tea', 'Wintergreen', 'Woodruff or Galium Odoratum',
+      'Wormwood', 'Yarrow', 'Yunnan Red Tea'
+    ]
+  },
+  {
+    id: 'spices',
+    name: 'SPICES',
+    nameIndo: 'Rempah-Rempah (Spices)',
+    emoji: '🌶️',
+    description:
+      'Warm, pungent, and intoxicating. Spices are classified into hot/short (cinnamon, clove) and cold/long (cardamom, coriander, pink pepper), injecting fiery passion or mysterious exotic depth into fragrances.',
+    descriptionIndo:
+      'Aroma rempah-rempah yang hangat, tajam, dan eksotis. Terbagi menjadi rempah hangat (Kayu Manis, Cengkeh, Lada) dan rempah segar dingin (Kapulaga, Ketumbar, Pink Pepper) yang memberikan daya pikat tinggi.',
+    notes: [
+      'Allspice', 'Anise', 'Asafoetida', 'Baking Spices', 'Bay Leaf', 'Bengal Pepper', 'Biryani',
+      'Black Sesame', 'Cacao Pod', 'Caraway', 'Cardamom', 'Carolina Reaper', 'Carum', 'Cassia',
+      'Chutney', 'Cinnamon', 'Cinnamon Leaf', 'Clove Leaf', 'Cloves', 'Coffee', 'Coffee CO2',
+      'Coffee Tincture', 'Coriander', 'Cubeb or Tailed Pepper', 'Cumin', 'Curcuma (Turmeric)',
+      'Curry', 'Curry Tree', 'Dill', 'Fennel', 'Fenugreek', 'Galanga', 'Ghost Pepper', 'Ginger',
+      'Green Coffee', 'Guinea Pepper', 'Indian Spices', 'Japanese Pepper', 'Kaempferia Galanga',
+      'Kopi Luwak Coffee', 'Licorice', 'Mace', 'Mustard Seed', 'Nutmeg', 'Oily Notes',
+      'Oriental Notes', 'Pepper', 'Peppertree', 'Pimento', 'Pimento Leaf', 'Pimento Seeds',
+      'Pink Pepper', 'Priprioca', 'Saffron', 'Safraleine', 'Sesame', 'Siam Cardamom',
+      'Sichuan Pepper', 'Spicy Notes', 'Spiked Pepper', 'Star Anise', 'Sumac', 'Tamarind', 'Timur',
+      'Tonka Bean', 'Toscanol', 'Ultravanil™', 'Vanilla', 'Wan Sao Lhong', 'Wasabi', 'Water Pepper',
+      'West Indian Bay'
+    ]
+  },
+  {
+    id: 'gourmand',
+    name: 'SWEETS AND GOURMAND SMELLS',
+    nameIndo: 'Aroma Manis & Dessert (Gourmand)',
+    emoji: '🍩',
+    description:
+      'Deliciously edible smells reminiscent of desserts, chocolate, caramel, vanilla, and sweet pastries. Gourmand notes evoke euphoria, warmth, cozy comfort, and playful indulgence.',
+    descriptionIndo:
+      'Aroma lezat khas kue, cokelat, karamel, vanila, dan hidangan penutup manis. Memberikan sensasi hangat, menggugah selera, dan membuat siapapun merasa nyaman saat menghirupnya.',
+    notes: [
+      'Acetyl Furan', 'Affogato', 'Agave Nectar', 'Apple liquor', 'Apple Pie', 'Apricot Jam',
+      'Aspic', 'Baba (Italian dessert)', 'Baguette', 'Baked Apple', 'Baked Pear', 'Baklava',
+      'Banana Bread', 'Biscotti', 'Biscuit', 'Blueberry Jam', 'Boba', 'Bonbon', 'Bread', 'Brioche',
+      'Brown Sugar', 'Brownie', 'Bubbaloo', 'Bubble Gum', 'Burnt Sugar', 'Butter', 'Buttercream',
+      'Butterscotch', 'Cacao Butter', 'Cake', "Calissons d'Aix", 'Candied Flowers', 'Candied Fruits',
+      'Candied Ginger', 'Candied Lemon', 'Candied Orange', 'Candies', 'Candy apple', 'Canelé',
+      'Caramel', 'Caramelized Almond', 'Cassata Siciliana', 'Cereal', 'Chamallow', 'Chantilly Cream',
+      'Cheesecake', 'Cherry Milk', 'Cherry Syrup', 'Chocolate Fudge', 'Chocolate Sauce',
+      'Chocolate Truffle', 'Choux Pastry', 'Churros', 'Cocoa Pulse™', 'Coconut Pie',
+      'Coconut Powder', 'Condensed Milk', 'Cone Waffle', 'Confetti (Sugared Almonds)', 'Cookie',
+      'Cookie Dough', 'Cosmofruit™ (IFF)', 'Cotton Candy', 'Cream', 'Cream Cheese Frosting',
+      'Creamsicle', 'Creamy notes', 'Crème Brûlée', 'Crispy Roll', 'Croissant', 'Cupcake',
+      'Custard', 'Czech Christmas Cookies (Linecké)', 'Danish pastry', 'Dark Chocolate',
+      'Dark Chocolate Liqueur', 'Dates', 'Donut or Doughnut', 'Dorayaki', 'Dragee', 'Dragibus',
+      'Dulce de Leche', 'Eggnog', 'Fougassette', 'French Pastries', 'Fresh Cream', 'Frosting [Glacé]',
+      'Gelatin', 'Gelato', 'Gianduia', 'Gingerbread', 'Gourmand Accord', 'Graham Crackers',
+      'Griotte Cherries', 'Gummy Candies', 'Halva', 'Ham', 'Hazelnut Cocoa Spread', 'Honey',
+      'Honeycomb', 'Horchata', 'Ice cream', 'Icing Pink', 'Jelly', 'Jellybean',
+      'Jiuniang (Sweet Fermented Rice Wine)', 'Jujube', 'Kiwi Jam', 'Knafeh', 'Kulfi', 'Kunafa',
+      'Lemon Meringue Pie', 'Lemon Pie', 'Lollipop', 'Loukhoum', 'Macarons', 'Madeleine',
+      'Maple Syrup', 'Maraschino Cherry', 'Marmalade', 'Marron Glacé', 'Marshmallow', 'Marzipan',
+      'Meringues', 'Milk Candy', 'Milk Cream', 'Milk Mousse', 'Milkshake', 'Milky Coffee', 'Mochi',
+      'Molasses', 'Muscovado', 'Nectar', 'Nougat', 'Nutella', 'Oatmilk', 'Orange Gelato',
+      'Orange Marmalade', 'Palm Sugar', 'Pan de Muerto', 'Pan Di Spagna', 'Pancake', 'Pandoro',
+      'Panettone', 'Panna Cotta', 'Pastiera Napoletana', 'Peach Cream', 'Peanut Butter',
+      'Pear Ice Cream', 'Pistachio Spread Cream', 'Popcorn', 'Popsicle', 'Powdered Sugar',
+      'Praline', 'Pretzel', 'Profiterole', 'Pudding', 'Puff Pastry', 'Pumpkin Pie', 'Rainbow Sorbet',
+      'Raspberry Macaron', 'Red Fruits Sorbet', 'Rice Cake', 'Rice Pudding', 'Rose Jam', 'Rose Milk',
+      'Sacher Torte', 'Salted Butter', 'Salted Caramel', 'Salted Caramel Fudge', 'Salted Egg Yolk',
+      'Scone', 'Shortcrust Pastry', 'Sorbet', 'Souffle', 'Sour Cream', 'Speculoos', 'Sprinkles',
+      'Spun Sugar', 'Starburst Candy', 'Strawberry Fizz Candy', 'Strawberry S’mores',
+      'Strawberry Syrup', 'Strawberry Yogurt', 'Sugar', 'Sugar Candy', 'Sugar cookie',
+      'Sugar Syrup', 'Sweet Pie', 'Tanghulu', 'Tarte Tatin', 'Tartine', 'Tiramisu', 'Toast',
+      'Toasted Coconut', 'Toasted Rice', 'Toffee', 'Tres Leches', 'Tropézienne Tarte', 'Tupig',
+      'Ube', 'Vanilla Caviar', 'Vanilla Macaroon', 'Vanilla Sauce', 'Waffle', 'White Chocolate',
+      'White Chocolate Truffle', 'Whoopie Pie', 'Yogurt', 'Zefir'
+    ]
+  },
+  {
+    id: 'woods',
+    name: 'WOODS AND MOSSES',
+    nameIndo: 'Kayu-Kayuan & Lumut (Woody & Mossy)',
+    emoji: '🪵',
+    description:
+      'Providing the solid backbone of fragrance compositions. From creamy sandalwood and dry cedarwood to rich Oud (agarwood) and dark inky oakmoss, woody notes add longevity, depth, and earthy strength.',
+    descriptionIndo:
+      'Karakter kayu yang kokoh, hangat, dan tahan lama sebagai fondasi Base Notes. Mulai dari Cendana (Sandalwood) yang lembut creamy, Cedarwood yang dry elegan, Oud yang mewah, hingga Oakmoss yang dalam.',
+    notes: [
+      'Agarwood (Oud)', 'Akigalawood', 'Alder', 'Almond tree', 'Amaranth', 'Amberever',
+      'Amburana Bark', 'Amburana Wood', 'Amyris', 'Apple Tree', 'Apricot Wood', 'Araucaria',
+      'Arbutus (Madrona, Bearberry Tree)', 'Argan Tree', 'Aspen', 'Australian Blue Cypress',
+      'Australian Oud', 'Bamboo', 'Baobab', 'Bark', 'Beech', 'Belambra Tree', 'Birch',
+      'Black Hemlock or Tsuga', 'Black Spruce', 'Blackwood', 'Blonde Woods', 'Brazilian Rosewood',
+      'Buddha Wood', 'Buxus', 'Cabreuva', 'Cambodian Oud', 'Canadian Balsam', 'Carob Tree',
+      'Cascarilla', 'Cashmir wood', 'Cedar', 'Chalood Bark', 'Charred Wood', 'Cherry Tree',
+      'Chinese Oud', 'Chypre Notes', 'Clearwood', 'Cocobolo', 'Coconut Tree', 'Coffee Tree',
+      'Cork', 'Cottonwood (Poplar)', 'Cypress', 'Cypriol Oil or Nagarmotha', 'Dark Patchouli',
+      'Dartanol®', 'Desert Sagebrush', 'Ditax wood', 'Dreamwood', 'Driftwood', 'Dry Wood',
+      'Ducke', 'Ebony Tree', 'Elm', 'Eucalyptus', 'False Cypress', 'Fig tree', 'Fir',
+      'Gaharu Buaya', 'Ghaf tree', 'Grass Tree', 'Guaiac Wood', 'Hiba', 'Himalayan Cedar',
+      'Hinoki Wood', 'Ho Wood', 'Incienso', 'Indian Oud', 'Indian Sandalwood', 'Indian Woods',
+      'Indonesian Oud', 'Ironwood', 'Ishpink, Ocotea Quixos', 'Kenya Rosewood', 'Kowhai',
+      'Kyara wood', 'Laotian Oud', 'Larch', 'Lichen', 'Liquidambar', 'Mahogany', 'Malaysian Oud',
+      'Mango Tree', 'Mangrove Wood', 'Manuka', 'Maple', 'Massoia', 'Mesquite', 'Mesquite Wood',
+      'Miswak', 'Muhuhu', 'Mulberry plant', 'Mysore Sandalwood', 'Neem', 'Nootka', 'Oak',
+      'Oakmoss', 'Olive Tree', 'Oud Butter', 'Oud Sumatra', 'Palisander Rosewood', 'Palo Santo',
+      'Palo Verde Tree', 'Pamplewood', 'Paper Mulberry', 'Paperbark', 'Papyrus',
+      'Paraguayan Green Sandalwood', 'Patchouli', 'Patchouli (Green)', 'Peach Tree', 'Pear Tree',
+      'Pepperwood or Hercules Club', 'Phoebe zhennan', 'Pine Tree', 'Pink Ipê Tree', 'Plum Tree',
+      'Pua Keni Keni (Pua-Lulu)', 'Ravenala', 'Ravensara', 'Red Willow', 'Redwood',
+      'Rhizoma Atractylodis', 'Saman', 'Sandalore™', 'Sandalwood', 'Sassafras', 'Satinwood',
+      'Sawdust', 'Scots pine variant', 'Selaginella tamariscina', 'Sequoia', 'Siam', 'Siam Wood',
+      'Spruce', 'Sycamore', 'Taiwan Incense-cedar', 'Takamaka', 'Tamboti Wood', 'Tatami',
+      'Teak Wood', 'Thailand Oud', 'Thanaka Wood', 'Thuja', 'Transparent Woods', 'Trat Oud',
+      'Velvet Woods', 'Vetiver', 'Vietnamese Oud', 'Western redcedar', 'White Oud', 'White Willow',
+      'Wolfwood', 'Wood barrel', 'Woody Notes', 'Yohimbe', 'Z11™'
+    ]
+  },
+  {
+    id: 'resins',
+    name: 'RESINS AND BALSAMS',
+    nameIndo: 'Damar & Balsam (Resins & Amber)',
+    emoji: '🍯',
+    description:
+      'Ancient crystalline tree tears including Frankincense, Myrrh, Benzoin, and Amberwood. Resins bring warm, sacred, enveloping, smoky, and long-lasting oriental mysticism to perfume blends.',
+    descriptionIndo:
+      'Getah kayu purba berharga seperti Kemenyan (Olibanum), Myrrh, Benzoin, dan Labdanum. Menghasilkan aroma magis berasap manis, hangat, dan memberikan ketahanan daya sebar terbaik.',
+    notes: [
+      'Amberwood', 'Andiroba', 'Bakhoor', 'Balsamic Notes', 'Balsamic Vinegar', 'Benzoin',
+      'Birch Tar', 'Bisabolene', 'Blue Amber', "Bois d'Encens", 'Breu-Branco', 'Bushman Candle',
+      'Cade oil', 'Choya Loban', 'Choya Nakh', 'Choya Ral', 'Coal Tar', 'Copahu Balm',
+      'Copaiba Balm', 'Copal', 'Dragon Blood Resin', 'Elemi', 'Estoraque', 'Gurjun Balsam',
+      'Incense', 'Japanese Incense', 'Labdanum', 'Mastic or Lentisque', 'Me bsangs', 'Mopane',
+      'Myrica', 'Myrrh', 'Nag Champa', 'Olibanum (Frankincense)', 'Olibanum Sacra Resin Green',
+      'Opoponax', 'Peru Balsam', 'Pine Tar', 'Poplar (Populus) Buds', 'Resins', 'Rubber',
+      'Styrax', 'Surf Wax', 'Tea Tree Oil'
+    ]
+  },
+  {
+    id: 'musk_amber',
+    name: 'MUSK, AMBER, ANIMALIC SMELLS',
+    nameIndo: 'Musk, Amber & Aroma Sensual',
+    emoji: '🐾',
+    description:
+      'Evoking sensual warmth, human skin chemistry, and primal allure. Musk, Ambroxan, Ambergris, and Leather create an intoxicating, cozy, second-skin radiance that clings softly for hours.',
+    descriptionIndo:
+      'Keharuman sensual yang menyatu sempurna dengan kehangatan kulit. Dikembangkan melalui Musk sintetis steril, Ambroxan, Ambergris, dan Leather yang memberikan daya pikat intim.',
+    notes: [
+      'Akashic Acord', 'Aldron', 'Amber', 'Amber Xtreme', 'Ambergris', 'Amberketal',
+      'Ambertonic™ (IFF)', 'Ambrarome', 'Ambrein', 'Ambretone', 'Ambrette (Musk Mallow)',
+      'Ambrettolide', 'AmbreXolide', 'Ambrocenide (Symrise)', 'Ambronova ™', 'Ambrostar',
+      'Ambroxan', 'Animal Notes', 'Anthamber™', 'Bacon', 'BBQ', 'Beeswax', 'Cachalox',
+      'Carrot Seeds', 'Castoreum', 'Caviar', 'Cetalox', 'Cheese', 'Civet', 'Civettone',
+      'Coral Reef', 'Daim', 'Exaltolide®', 'Feathers', 'Fur', 'Genet', 'Goat Hair',
+      "Goat's Milk", 'Grisalva', 'Habanolide®', 'Horse skin', 'Hyraceum', 'Kephalis',
+      'Kyphi', 'Leather', 'Meat', 'Milk', 'Muscone', 'Musk', 'Muskrat', 'Onycha', 'Oysters',
+      'Saffiano Leather', 'Sea Shells', 'Skatole', 'Skin', 'Skin musk', 'Starfish', 'Suede',
+      'Sylkolide', 'Tolu Balsam', 'Truffle', 'Velvione™'
+    ]
+  },
+  {
+    id: 'beverages',
+    name: 'BEVERAGES',
+    nameIndo: 'Aroma Minuman & Cocktail',
+    emoji: '🍸',
+    description:
+      'Recreating festive drinks, Champagne, Coffee, Rum, Cognac, and refreshing teas. Beverage notes add a bubbly, intoxicating, or cozy comforting gourmand splash to fragrances.',
+    descriptionIndo:
+      'Kombinasi aroma minuman seperti Kopi Espresso, Rum, Cognac, Champagne, hingga Teh Melati dan Boba yang menyegarkan sekaligus memberi kesan glamor modern.',
+    notes: [
+      'Absinthe', 'Advocaat', 'Almdudler', 'Amaretto', 'Amarula', 'Aperol', 'Applejack',
+      'Baileys Irish Cream', 'Batida', 'Beer', 'Beer/Ale', 'Bellini', 'Blackcurrant Juice',
+      'Blue Margarita', 'Bohea (Wuyi Tea)', 'Boozy Notes', 'Bourbon Whiskey', 'Brandy',
+      'Buttered Rum', 'Buttermilk', 'Cachaça', 'Caffè Latte', 'Caipirinha', 'Calvados Drink',
+      'Campari', 'Cappuccino', 'Chai Latte', 'Champagne', 'Champagne Cola', 'Champagne Rosé',
+      'Cherry Liqueur', 'Chhaang', 'Chinotto', 'Coca-Cola', 'Cocktail accord', 'Cocktail Fruits',
+      'Coffee Liqueur', 'Cognac', 'Cola', 'Cosmopolitan Cocktail', 'Cream Liqueur', 'Cream Soda',
+      'Curaçao', 'Daiquiri', 'Eau de Vie', 'Espresso', 'Espresso Coffee', 'Frothed milk',
+      'Fruit Tea', 'Génépi', 'Gin', 'Goldwasser', 'Grenadine', 'Grogue', 'Hi-Fi',
+      'Hot Chocolate', 'Ice Wine', 'Jasmine Tea', 'Kava Drink', 'Kir Royal', 'Kombucha',
+      'Lemon Soda', 'Lemonade', 'Limoncello', 'Liquor', 'Macchiato', 'Madeira',
+      'Mai Tai Cocktail', 'Margarita', 'Martini', 'Masala Chai', 'Mezcal', 'Midori',
+      'Mint Tea', 'Mocha', 'Mojito', 'Moonshine', 'Moscow Mule', 'Mulled Wine', 'Negroni',
+      'Orange Soda', 'Ouzo', 'Pear Juice', 'Pina Colada', 'Pisco Sour Cocktail',
+      'Pistachio Liquer', 'Plum Brandy', 'Plum Wine', 'Port Wine', 'Prosecco', 'Punch',
+      'Raki', 'Red Wine', 'Rhum Agricole', 'Rice Water', 'Root Beer', 'Rum', 'Sake',
+      'Sangria', 'Sauce-aroma Baijiu', 'Sex on the beach', 'Sherry', 'Soju', 'Sour Milk',
+      'Soy Milk', 'Sparkling Water', 'Sparkling Wine', 'Sweet Milk', 'Syrup', 'Tequila',
+      'Tokaji Wine', 'Tonic Water', 'Triple Sec', 'Umeshu', 'Verjuice', 'Vermouth',
+      'Vieux Carré', 'Vinegar', 'Vodka', 'Whiskey', 'White Wine', 'Wine Lees', 'Wine must',
+      'Yellow Wine'
+    ]
+  },
+  {
+    id: 'synthetic_weird',
+    name: 'NATURAL AND SYNTHETIC, POPULAR AND WEIRD',
+    nameIndo: 'Sintetis, Unik & Eksperimental',
+    emoji: '🧪',
+    description:
+      'Innovative modern molecules and unexpected olfactory notes including Iso E Super, Hedione, Petrichor (rain scent), Cashmeran, Metallic, and clean laundry accords that redefine artistic perfumery.',
+    descriptionIndo:
+      'Molekul sintetis canggih dan aroma artistik unik seperti Iso E Super, Hedione, Petrichor (aroma hujan), Cashmeran, Kain Bersih, hingga nuansa metallic yang memberi keunikan futuristik.',
+    notes: [
+      'Pepperwood™', 'Accord Eudora®', 'Airy Note', 'Alcantara Accord', 'Aldambre', 'Aldehydes',
+      'Aluminum', 'Ambermax™', 'Ambreine', 'Ambrettolide', 'Ambrinol', 'Ambrofix™', 'AMBROX® SUPER',
+      'Ammonia', 'Amyl Salicylate', 'Antillone™', 'Apple Shisha Accord', 'Aquaflora™', 'Aqual™',
+      'Aquozone', 'Ash', 'Asphalt', 'Azarbre', 'Barnyard', 'Black Diamond', 'Black Leather',
+      'Blood', 'Blue Crystal', 'Boisiris', 'Bourgeonal', 'Brick', 'Brown Scotch Tape',
+      'Burnt Match', 'Calone', 'Calypsone', 'Camphor', 'Candle Wax', 'Cannoli', 'Canvas',
+      'Caoutchouc', 'Cascalone', 'Cashalox', 'Cashmeran', 'Cedramber', 'Cetonal®', 'Chalk',
+      'Cigarette', 'Cinnamaldehyde', 'Clarycet', 'Clay', 'Clean notes', 'CO2 Extracts', 'Coal',
+      'Coal Tar Pitch', 'Cobblestone', 'Cocaine', 'Concrete', 'Copper', 'Coral Limestone',
+      'Coranol', 'Cork', 'Cosmone', 'Coumarin', 'Credit Cards', 'Crustaceans', 'Cuban Cigar',
+      'Cyclopidene', 'Damascone', 'Desert Rain Accord', 'Dew Drop', 'Dihydromyrcenol', 'Dirt',
+      'Diving Suit', 'Dodecanal', 'Doremox®', 'Dust', 'Earth Tincture', 'Earthy Notes', 'Egg',
+      'Ember', 'Ethyl Maltol', 'Ethyl Vanilin', 'Ethylvanillin', 'Eugenol', 'Evernyl', 'Fabric',
+      'Factor X', 'Fior di Latte', 'Fire', 'Fish', 'Flint', 'Floralozone', 'Floratta DNA',
+      'Flour', 'Flower Prism', 'Fog', 'Galaxolide', 'Gasoline', 'Georgywood', 'Geosmin', 'Glass',
+      'Gold', 'Graphite', 'Grease', 'Guaiacol', 'Gunpowder', 'Hair Pomade', 'Hand Cream',
+      'Hashish', 'Head Space Waterfall', 'Healingwood', 'Heated metal', 'Hedione', 'Helvetolide',
+      'Hexenyl Green', 'Hexyl Acetate', 'Hina', 'Hindinol', 'Hivernal®', 'Holy Water', 'Hot Iron',
+      'Ice', 'Indole', 'Industrial Glue', 'Ink', 'Inkstick', 'Instant Film Accord', 'Iodine',
+      'Ionones', 'Iso E Super', 'Isobutyl Quinoline', 'Jasmolactone', 'Jasmone', 'Javanol',
+      'Jeans', 'Lace', 'Lacquered Wood', 'Lactones', 'latex', 'Lava', 'Lilybelle®', 'Linalool',
+      'Linen', 'Lip Gloss', 'Lipstick', 'Little Doll Strawberry', 'Loam', 'Lorenox', 'Magnolan',
+      'Marble', 'Mascarpone Cheese', 'Mayonnaise Accord', 'Melbaton', 'Melonal', 'Metallic Notes',
+      'Mineral Notes', 'Mitti Attar', 'Molasses', 'Money', 'Motor Oil', 'Mountain Air',
+      'Mousse de Saxe', 'Mud', 'Mugane', 'Muscenone', 'Mystikal', 'Nail Polish', 'Naphthalene',
+      'NaturalCalm™', 'Neoprene', 'New Magazine', 'Norlimbanol™', 'Nympheal™', 'Obsidial ®',
+      'Old Books', 'Old Furniture', 'Old House', 'Operanide', 'Orbitone', 'Orcanox™',
+      'Osmasylk Natsublim™', 'Oud Smoke', 'Ozonic Notes', 'Paper', 'Para-Cresyl Phenyl Acetate',
+      'Paradisone', 'Parchment', 'Party Balloons', 'Pearadise®', 'Pearls', 'Peat', 'Pebbles',
+      'Pencil', 'Petroleum', 'Pharaone®', 'Pink Crystal', 'Pink Himalayan Sea Salt', 'Pizza',
+      'Plasma', 'Plastic', 'Plastic Bag', 'Play-Doh', 'Poison', 'Poivrol', 'Pollen', 'Pomarose',
+      'Porcelain', 'Porcelain clay', 'Powdery Notes', 'Priest’s Clothes', 'Propolis', 'Prunol',
+      'Rain Notes', 'RE Base', 'Red Beans', 'Red Lantern', 'Rhodinol', 'Rice Powder', 'Ricotta',
+      'River Notes', 'Romandolide®', 'Rose Oxide', 'Safrole', 'Salicylic Acid', 'Salt', 'Sand',
+      'Santamanol™', 'Satin', 'Sauna', 'Scent Trek®', 'Sclarene', 'Sea Foam', 'Sea Water',
+      'Serenolide', 'Shamama Attar', 'Silk', 'Silver', 'Sinfonide', 'Siren', 'Sisal Rope', 'Slate',
+      'Smoke', 'Snow', 'Soap', 'Soda Bubbles', 'Sodium Silicate', 'Solar Notes', 'Soy Sauce',
+      'SP3 Carbon', 'Sparkling Accord', 'Spiranol', 'Spray Paint', 'Squishmallow Accord',
+      'Stardust', 'Steam accord', 'Stone', 'Straw', 'Sublimolide™', 'Suederal®', 'Sulphur',
+      'Sunscreen', 'Suntan Lotion', 'Sweat', 'T-Shirt accord', 'Talc', 'Tar', 'Tennis Ball',
+      'Terpentine', 'Terpineol', 'Terracotta', 'Terranol', 'Thalassogaia™', 'Timberol',
+      'Timbersilk™', 'Tires', 'Tomato Sauce', 'Tonalide®', 'Tonquitone™', 'Toothpaste',
+      'Trimofix®', 'Tuberolide', 'Tulle accord', 'Vanillin', 'Varnish Accord', 'Veloutone',
+      'Velvet', 'Verdox', 'Vinyl', 'Vinyl Guaiacol', 'Vitamin C', 'Water', 'Western Honey Bee',
+      'Wet Plaster', 'Wet Stone', 'White Leather', 'White Powder', 'Wool', 'Yeast', 'Z-11 HD'
+    ]
+  },
+  {
+    id: 'uncategorized',
+    name: 'UNCATEGORIZED',
+    nameIndo: 'Note Spesial & Lainnya',
+    emoji: '✨',
+    description:
+      'Unusual, fantasy, and niche notes that spark curiosity and add distinct artistic flair to modern avant-garde perfumery.',
+    descriptionIndo:
+      'Catatan aroma unik, ramuan khusus, dan impresi fantasi yang menambah keunikan eksklusif pada racikan parfum modern.',
+    notes: [
+      'Charcoal', 'Gun Smoke', 'Hookah', 'Horsepower', 'Jonquille', 'Moxalone', 'Nemophila',
+      'Pandan', 'Paradisamide', 'Powder From The Moon', 'Rocket fuel', 'Salmiak salt',
+      'Sea cucumber', 'Sorghum', 'Space Ship', 'Sweet Alyssum', 'Sweet Potato', 'Umami'
+    ]
+  }
+];
+
+// Flat array of all notes across all 13 categories
+export const ALL_FRAGRANCE_NOTES: string[] = Array.from(
+  new Set(FRAGRANCE_NOTE_GROUPS.flatMap((g) => g.notes))
+).sort((a, b) => a.localeCompare(b));

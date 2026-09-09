@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang & Checkout - Scentsation Decant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .serif-title { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="serif-title text-2xl font-bold tracking-wider text-slate-900">SCENTSATION</a>
+                </div>
+                <div class="hidden md:flex space-x-8 font-medium text-sm text-slate-600">
+                    <a href="index.html" class="hover:text-slate-900 px-1 pt-1 transition">Home</a>
+                    <a href="katalog.html" class="hover:text-slate-900 px-1 pt-1 transition">Katalog Parfum</a>
+                    <a href="riwayat.html" class="hover:text-slate-900 px-1 pt-1 transition">Riwayat Belanja</a>
+                    <a href="bantuan.html" class="hover:text-slate-900 px-1 pt-1 transition">Bantuan & FAQ</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-sm font-medium text-slate-700 hidden sm:inline">Dwifi Parizza</span>
+                    <div class="w-8 h-8 rounded-full bg-slate-200 border border-slate-300 overflow-hidden flex items-center justify-center text-xs font-bold text-slate-600">
+                        DP
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 class="serif-title text-3xl font-bold text-slate-900 mb-8">Keranjang Belanja & Checkout</h1>
+
+        <div class="grid lg:grid-cols-3 gap-8 items-start">
+            
+            <div class="lg:col-span-2 space-y-6">
+                
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                    <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                        <span class="bg-slate-900 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">1</span>
+                        Informasi Pengiriman
+                    </h2>
+                    
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Nama Penerima</label>
+                            <input type="text" id="form-nama" value="Dwifi Parizza" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-slate-400" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Nomor WhatsApp</label>
+                            <input type="tel" id="form-wa" placeholder="Contoh: 08123456789" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-slate-400" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Email (Google)</label>
+                        <input type="email" id="form-email" value="dwifi@gmail.com" class="w-full p-3 bg-slate-100 border border-slate-200 rounded-xl text-sm text-slate-500 focus:outline-none cursor-not-allowed" readonly>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase mb-1">Alamat Lengkap Pengiriman</label>
+                        <textarea id="form-alamat" rows="3" placeholder="Nama Jalan, Nomor Rumah, RT/RW, Kecamatan, Kota, Kode Pos" class="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-slate-400" required></textarea>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                    <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                        <span class="bg-slate-900 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs">2</span>
+                        Instruksi Pembayaran
+                    </h2>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Silakan lakukan transfer ke salah satu rekening di bawah ini. Setelah menekan tombol checkout, kirimkan bukti transfer Anda melalui chat WhatsApp yang terbuka otomatis.
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-3 pt-2">
+                        <div class="border border-slate-200 p-4 rounded-xl bg-slate-50/50">
+                            <span class="text-xs font-bold block text-slate-400 tracking-wider">BANK BCA</span>
+                            <span class="font-bold text-slate-900 block my-1">123-4567-890</span>
+                            <span class="text-xs text-slate-500">a.n. Pemilik Toko Parfum</span>
+                        </div>
+                        <div class="border border-slate-200 p-4 rounded-xl bg-slate-50/50">
+                            <span class="text-xs font-bold block text-slate-400 tracking-wider">E-WALLET DANA</span>
+                            <span class="font-bold text-slate-900 block my-1">0812-3456-7890</span>
+                            <span class="text-xs text-slate-500">a.n. Pemilik Toko Parfum</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-6 lg:sticky lg:top-24">
+                <h2 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-4">Ringkasan Belanja</h2>
+                
+                <div class="space-y-4 max-h-60 overflow-y-auto pr-1">
+                    
+                    <div class="flex gap-3 items-center justify-between border-b border-slate-50 pb-3">
+                        <div class="flex gap-3 items-center">
+                            <div class="w-12 h-12 bg-slate-100 rounded-lg flex-shrink-0 flex items-center justify-center text-[10px] text-slate-400 font-bold">EDP</div>
+                            <div>
+                                <h4 class="font-semibold text-sm text-slate-900">Bleu de Chanel</h4>
+                                <p class="text-xs text-slate-400">Ukuran: <span class="item-varian">5 ml</span> (x<span class="item-qty">2</span>)</p>
+                            </div>
+                        </div>
+                        <span class="text-sm font-semibold text-slate-900">Rp110.000</span>
+                    </div>
+
+                    <div class="flex gap-3 items-center justify-between border-b border-slate-50 pb-3">
+                        <div class="flex gap-3 items-center">
+                            <div class="w-12 h-12 bg-slate-100 rounded-lg flex-shrink-0 flex items-center justify-center text-[10px] text-slate-400 font-bold">EDP</div>
+                            <div>
+                                <h4 class="font-semibold text-sm text-slate-900">Black Opium</h4>
+                                <p class="text-xs text-slate-400">Ukuran: <span class="item-varian">2 ml</span> (x<span class="item-qty">1</span>)</p>
+                            </div>
+                        </div>
+                        <span class="text-sm font-semibold text-slate-900">Rp25.000</span>
+                    </div>
+
+                </div>
+
+                <div class="border-t border-slate-100 pt-4 space-y-2 text-sm">
+                    <div class="flex justify-between text-slate-500">
+                        <span>Subtotal Produk</span>
+                        <span>Rp135.000</span>
+                    </div>
+                    <div class="flex justify-between text-slate-500">
+                        <span>Ongkos Kirim</span>
+                        <span class="italic text-xs text-amber-600 font-medium">Dihitung manual saat konfirmasi</span>
+                    </div>
+                    <div class="flex justify-between text-base font-bold text-slate-900 pt-2 border-t border-dashed border-slate-200">
+                        <span>Total Bayar</span>
+                        <span id="total-tagihan">Rp135.000</span>
+                    </div>
+                </div>
+
+                <button onclick="kirimWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-sm">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.863-9.864.001-2.636-1.023-5.114-2.884-6.978C16.58 1.9 14.103.877 11.47.877c-5.441 0-9.863 4.42-9.866 9.865-.001 1.772.464 3.502 1.346 5.03L1.928 21.75l6.119-1.608L6.648 19.16z"/>
+                    </svg>
+                    <span>Konfirmasi via WhatsApp</span>
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-8 text-center text-sm text-slate-500 mt-20">
+        <p>&copy; 2026 Scentsation Decant. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script>
+        function kirimWhatsApp() {
+            // Ambil data dari Input Form
+            const nama = document.getElementById('form-nama').value.trim();
+            const wa = document.getElementById('form-wa').value.trim();
+            const alamat = document.getElementById('form-alamat').value.trim();
+            const total = document.getElementById('total-tagihan').innerText;
+
+            // Validasi sederhana form kosong
+            if (!nama || !wa || !alamat) {
+                alert("Harap isi seluruh informasi pengiriman terlebih dahulu!");
+                return;
+            }
+
+            // Ganti dengan nomor WhatsApp Toko Anda sendiri (Format: 628xxx)
+            const nomorAdmin = "6281234567890"; 
+
+            // Menyusun Format Teks Pesan Otomatis untuk dikirim ke WhatsApp
+            let teksPesan = `Halo Scentsation Decant, saya ingin mengonfirmasi pesanan parfum saya.\n\n`;
+            teksPesan += `*--- DATA PENGIRIMAN ---*\n`;
+            teksPesan += `👤 Nama: ${nama}\n`;
+            teksPesan += `📞 No. WA: ${wa}\n`;
+            teksPesan += `📍 Alamat: ${alamat}\n\n`;
+            teksPesan += `*--- DETAIL DETAIL BELANJA ---*\n`;
+            teksPesan += `- Bleu de Chanel | 5 ml (x2) = Rp110.000\n`;
+            teksPesan += `- Black Opium | 2 ml (x1) = Rp25.000\n\n`;
+            teksPesan += `💰 *Total Tagihan:* ${total}\n\n`;
+            teksPesan += `Saya akan segera mengirimkan lampiran foto bukti transfernya. Terima kasih!`;
+
+            // Encode teks agar aman dibaca oleh URL format browser/aplikasi WA
+            const urlFormat = `https://api.whatsapp.com/send?phone=${nomorAdmin}&text=${encodeURIComponent(teksPesan)}`;
+            
+            // Buka tab baru langsung mengarah ke chat WhatsApp
+            window.open(urlFormat, '_blank');
+        }
+    </script>
+</body>
+</html>

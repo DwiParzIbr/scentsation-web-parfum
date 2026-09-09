@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Koleksi Parfum - Scentsation Decant</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .serif-title { font-family: 'Playfair Display', serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="serif-title text-2xl font-bold tracking-wider text-slate-900">SCENTSATION</a>
+                </div>
+                <div class="hidden md:flex space-x-8 font-medium text-sm text-slate-600">
+                    <a href="index.html" class="hover:text-slate-900 px-1 pt-1 transition">Home</a>
+                    <a href="katalog.html" class="text-slate-900 border-b-2 border-slate-900 px-1 pt-1">Katalog Parfum</a>
+                    <a href="riwayat.html" class="hover:text-slate-900 px-1 pt-1 transition">Riwayat Belanja</a>
+                    <a href="bantuan.html" class="hover:text-slate-900 px-1 pt-1 transition">Bantuan & FAQ</a>
+                </div>
+                <!-- User Profile (Google Login) -->
+                <div class="flex items-center gap-3">
+                    <span class="text-sm font-medium text-slate-700 hidden sm:inline">Dwifi Parizza</span>
+                    <div class="w-8 h-8 rounded-full bg-slate-200 border border-slate-300 overflow-hidden flex items-center justify-center text-xs font-bold text-slate-600">
+                        DP
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Halaman Katalog Utama -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Bagian Judul Halaman -->
+        <div class="mb-10 text-center md:text-left">
+            <h1 class="serif-title text-3xl sm:text-4xl font-bold text-slate-900 mb-2">Semua Koleksi Parfum</h1>
+            <p class="text-sm text-slate-500">Temukan versi decant original dari berbagai brand ternama dunia.</p>
+        </div>
+
+        <!-- AREA FILTER & PENCARIAN -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm mb-10 flex flex-col md:flex-row gap-4 justify-between items-center">
+            <!-- Kolom Cari Nama -->
+            <div class="w-full md:w-72 relative">
+                <input type="text" id="cari-parfum" placeholder="Cari nama parfum atau brand..." 
+                       class="w-full pl-4 pr-10 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-slate-400 transition"
+                       onkeyup="filterKatalog()">
+                <span class="absolute right-3 top-3 text-slate-400 text-sm">🔍</span>
+            </div>
+
+            <!-- Kolom Filter Vibe/Karakter Aroma -->
+            <div class="w-full md:w-auto flex flex-wrap gap-2 justify-start md:justify-end">
+                <button onclick="filterKategori('all')" class="btn-kategori active bg-slate-900 text-white text-xs font-semibold px-4 py-2 rounded-full transition border border-slate-900">
+                    Semua Aroma
+                </button>
+                <button onclick="filterKategori('fresh')" class="btn-kategori bg-white text-slate-600 hover:text-slate-900 text-xs font-semibold px-4 py-2 rounded-full transition border border-slate-200">
+                    Fresh & Sporty
+                </button>
+                <button onclick="filterKategori('sweet')" class="btn-kategori bg-white text-slate-600 hover:text-slate-900 text-xs font-semibold px-4 py-2 rounded-full transition border border-slate-200">
+                    Sweet & Vanilla
+                </button>
+                <button onclick="filterKategori('woody')" class="btn-kategori bg-white text-slate-600 hover:text-slate-900 text-xs font-semibold px-4 py-2 rounded-full transition border border-slate-200">
+                    Bold & Woody
+                </button>
+            </div>
+        </div>
+
+        <!-- GRID PRODUK -->
+        <!-- Pesan jika produk tidak ditemukan -->
+        <div id="produk-kosong" class="hidden text-center py-12 text-slate-400 text-sm">
+            Parfum yang Anda cari tidak ditemukan.
+        </div>
+
+        <div id="wadah-katalog" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- PRODUK 1 -->
+            <!-- <div class="kartu-produk bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col" data-kategori="fresh" data-nama="bleu de chanel">
+                <div class="h-60 bg-slate-100 flex items-center justify-center text-slate-400 font-medium text-xs">[ Foto Produk ]</div>
+                <div class="p-5 flex-grow flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-bold tracking-wider text-slate-400 uppercase block mb-1">Chanel</span>
+                        <h3 class="nama-item font-semibold text-slate-900 text-lg mb-1">Bleu de Chanel</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2 mb-3">Aroma segar citrus berpadu dengan kehangatan woody yang mewah dan maskulin.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline gap-1 mb-4"><span class="text-xs text-slate-400">Mulai dari</span><span class="font-bold text-slate-900 text-lg">Rp28.000</span></div>
+                        <a href="detail.html" class="block w-full text-center bg-slate-50 border border-slate-200 text-slate-800 text-sm font-semibold py-2.5 rounded-xl hover:bg-slate-900 hover:text-white transition">Lihat Detail</a>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- PRODUK 2 -->
+            <!-- <div class="kartu-produk bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col" data-kategori="sweet" data-nama="baccarat rouge 540">
+                <div class="h-60 bg-slate-100 flex items-center justify-center text-slate-400 font-medium text-xs">[ Foto Produk ]</div>
+                <div class="p-5 flex-grow flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-bold tracking-wider text-slate-400 uppercase block mb-1">Maison Francis Kurkdjian</span>
+                        <h3 class="nama-item font-semibold text-slate-900 text-lg mb-1">Baccarat Rouge 540</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2 mb-3">Aroma manis amberwood dan jasmine yang sangat ikonis, elegan, dan tahan lama.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline gap-1 mb-4"><span class="text-xs text-slate-400">Mulai dari</span><span class="font-bold text-slate-900 text-lg">Rp35.000</span></div>
+                        <a href="detail.html" class="block w-full text-center bg-slate-50 border border-slate-200 text-slate-800 text-sm font-semibold py-2.5 rounded-xl hover:bg-slate-900 hover:text-white transition">Lihat Detail</a>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- PRODUK 3 -->
+            <!-- <div class="kartu-produk bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col" data-kategori="sweet" data-nama="black opium">
+                <div class="h-60 bg-slate-100 flex items-center justify-center text-slate-400 font-medium text-xs">[ Foto Produk ]</div>
+                <div class="p-5 flex-grow flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-bold tracking-wider text-slate-400 uppercase block mb-1">Yves Saint Laurent</span>
+                        <h3 class="nama-item font-semibold text-slate-900 text-lg mb-1">Black Opium</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2 mb-3">Kombinasi aroma kopi yang kaya dan manisnya vanilla, memberikan kesan seksi & adiktif.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline gap-1 mb-4"><span class="text-xs text-slate-400">Mulai dari</span><span class="font-bold text-slate-900 text-lg">Rp25.000</span></div>
+                        <a href="detail.html" class="block w-full text-center bg-slate-50 border border-slate-200 text-slate-800 text-sm font-semibold py-2.5 rounded-xl hover:bg-slate-900 hover:text-white transition">Lihat Detail</a>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- PRODUK 4 -->
+            <!-- <div class="kartu-produk bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col" data-kategori="woody" data-nama="sauvage">
+                <div class="h-60 bg-slate-100 flex items-center justify-center text-slate-400 font-medium text-xs">[ Foto Produk ]</div>
+                <div class="p-5 flex-grow flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-bold tracking-wider text-slate-400 uppercase block mb-1">Dior</span>
+                        <h3 class="nama-item font-semibold text-slate-900 text-lg mb-1">Sauvage</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2 mb-3">Sensasi wangi bergamot mentah yang segar dipadu jejak amberwood yang tegas maskulin.</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline gap-1 mb-4"><span class="text-xs text-slate-400">Mulai dari</span><span class="font-bold text-slate-900 text-lg">Rp28.000</span></div>
+                        <a href="detail.html" class="block w-full text-center bg-slate-50 border border-slate-200 text-slate-800 text-sm font-semibold py-2.5 rounded-xl hover:bg-slate-900 hover:text-white transition">Lihat Detail</a>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-200 py-8 text-center text-sm text-slate-500 mt-20">
+        <p>&copy; 2026 Scentsation Decant. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <!-- LOGIKA FILTER JAVASCRIPT -->
+<!-- LOGIKA FILTER & PENARIKAN DATA DINAMIS -->
+    <script>
+        let dataKatalogLokal = []; // Menampung data dari database secara lokal di browser
+        let kategoriAktif = 'all';
+
+        // Fungsi memanggil API backend saat halaman dimuat pertama kali
+        async function ambilKatalogDariDatabase() {
+            try {
+                const respon = await fetch('/api/katalog-produk');
+                const data = await respon.json();
+                
+                dataKatalogLokal = data;
+                renderKartuKatalog(dataKatalogLokal);
+            } catch (error) {
+                console.error("Gagal memuat data katalog parfum:", error);
+                document.getElementById('wadah-katalog').innerHTML = `
+                    <div class="col-span-full text-center py-8 text-red-500 font-semibold">
+                        Gagal memuat katalog produk. Silakan coba segarkan halaman.
+                    </div>
+                `;
+            }
+        }
+
+        // Fungsi menyusun elemen HTML kartu produk secara dinamis berdasarkan data array
+        function renderKartuKatalog(produkList) {
+            const wadah = document.getElementById('wadah-katalog');
+            wadah.innerHTML = ''; // Kosongkan wadah utama
+
+            if (produkList.length === 0) {
+                document.getElementById('produk-kosong').classList.remove('hidden');
+                return;
+            } else {
+                document.getElementById('produk-kosong').classList.add('hidden');
+            }
+
+            produkList.forEach(item => {
+                // Secara opsional, tentukan kategori/vibe aroma berdasarkan nama (simulasi pengelompokan)
+                let kategori = 'fresh';
+                if (item.nama.toLowerCase().includes('vanilla') || item.nama.toLowerCase().includes('opium')) kategori = 'sweet';
+                if (item.nama.toLowerCase().includes('sauvage') || item.nama.toLowerCase().includes('woody')) kategori = 'woody';
+
+                wadah.innerHTML += `
+                    <div class="kartu-produk bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col" data-kategori="${kategori}" data-nama="${item.nama.toLowerCase()}">
+                        <div class="h-60 bg-slate-100 flex items-center justify-center text-slate-400 font-medium text-xs">
+                            📸 [ Foto ${item.nama} ]
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-[10px] font-bold tracking-wider text-slate-400 uppercase block mb-1">${item.brand}</span>
+                                <h3 class="nama-item font-semibold text-slate-900 text-lg mb-1">${item.nama}</h3>
+                                <p class="text-xs text-slate-500 line-clamp-2 mb-3">${item.deskripsi}</p>
+                            </div>
+                            <div>
+                                <div class="flex items-baseline gap-1 mb-4">
+                                    <span class="text-xs text-slate-400">Mulai dari</span>
+                                    <span class="font-bold text-slate-900 text-lg">Rp${item.harga_terendah.toLocaleString('id-ID')}</span>
+                                </div>
+                                <a href="detail.html?id_parfum=${item.nama}" class="block w-full text-center bg-slate-50 border border-slate-200 text-slate-800 text-sm font-semibold py-2.5 rounded-xl hover:bg-slate-900 hover:text-white transition">
+                                    Lihat Detail
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Fungsi Filter Kategori Tombol Atas
+        function filterKategori(kategori) {
+            kategoriAktif = kategori;
+            
+            const tombols = document.querySelectorAll('.btn-kategori');
+            tombols.forEach(btn => {
+                btn.classList.remove('bg-slate-900', 'text-white', 'border-slate-900');
+                btn.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
+            });
+            event.currentTarget.classList.add('bg-slate-900', 'text-white', 'border-slate-900');
+            event.currentTarget.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+
+            eksekusiFilterGabungan();
+        }
+
+        // Fungsi Pencarian Teks Kotak Cari
+        function filterKatalog() {
+            eksekusiFilterGabungan();
+        }
+
+        // Fungsi penyaring gabungan antara tombol kategori dan kata kunci ketikan
+        function eksekusiFilterGabungan() {
+            const kataKunci = document.getElementById('cari-parfum').value.toLowerCase();
+            const kartu = document.querySelectorAll('.kartu-produk');
+            let adaProduk = false;
+
+            kartu.forEach(card => {
+                const kat = card.getAttribute('data-kategori');
+                const nam = card.getAttribute('data-nama');
+
+                const cocokKategori = (kategoriAktif === 'all' || kat === kategoriAktif);
+                const cocokNama = nam.includes(kataKunci);
+
+                if (cocokKategori && cocokNama) {
+                    card.classList.remove('hidden');
+                    adaProduk = true;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            const pesanKosong = document.getElementById('produk-kosong');
+            if (adaProduk) pesanKosong.classList.add('hidden');
+            else pesanKosong.classList.remove('hidden');
+        }
+
+        // Eksekusi fungsi penarikan data saat browser selesai memuat DOM halaman
+        document.addEventListener('DOMContentLoaded', ambilKatalogDariDatabase);
+    </script>
+</body>
+</html>

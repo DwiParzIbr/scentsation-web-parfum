@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Pesanan - Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 flex flex-col md:flex-row min-h-screen">
+
+    <aside class="w-full md:w-64 bg-slate-900 text-slate-400 p-6 flex flex-col justify-between flex-shrink-0">
+        <div class="space-y-8">
+            <div class="text-white font-bold text-xl tracking-wider border-b border-slate-800 pb-4">
+                👑 SCENTSATION <span class="text-xs text-amber-500 block font-normal mt-0.5">Admin Panel</span>
+            </div>
+            <nav class="space-y-2 text-sm">
+                <a href="admin.html" class="flex items-center gap-3 hover:text-white hover:bg-slate-800 px-4 py-3 rounded-xl transition">
+                    📊 Ringkasan Dasbor
+                </a>
+                <a href="parfum.html" class="flex items-center gap-3 hover:text-white hover:bg-slate-800 px-4 py-3 rounded-xl transition">
+                    💧 Stok Parfum Utama
+                </a>
+                <a href="katalog.html" class="flex items-center gap-3 hover:text-white hover:bg-slate-800 px-4 py-3 rounded-xl transition">
+                🏷️ Manajemen Katalog
+                </a>
+                <a href="produk.html" class="flex items-center gap-3 hover:text-white hover:bg-slate-800 px-4 py-3 rounded-xl transition">
+                    ⚙️ Pengaturan Varian
+                </a>
+                <a href="#" class="flex items-center gap-3 text-white bg-slate-800 px-4 py-3 rounded-xl font-semibold">
+                    🛍️ Pesanan Masuk
+                </a>
+            </nav>
+        </div>
+        <div class="pt-6 border-t border-slate-800 text-xs text-slate-500">
+            Logged in as: <strong class="text-slate-300">Admin Utama</strong>
+            <a href="/auth/logout" class="block mt-2 text-red-400 hover:underline">Keluar Halaman Admin</a>
+        </div>
+    </aside>
+
+    <main class="flex-grow p-6 sm:p-10 space-y-6 max-h-screen overflow-y-auto">
+        
+        <div>
+            <h1 class="text-2xl font-bold text-slate-900">Manajemen & Kelola Pesanan</h1>
+            <p class="text-xs text-slate-500">Pantau pesanan masuk, lakukan validasi transfer bank, dan perbarui status logistik resi kurir.</p>
+        </div>
+
+        <div class="flex flex-wrap gap-2 text-xs font-semibold">
+            <button class="bg-slate-900 text-white px-4 py-2 rounded-full border border-slate-900">Semua Pesanan</button>
+            <button class="bg-white text-slate-600 hover:text-slate-900 px-4 py-2 rounded-full border border-slate-200 transition">⏳ Menunggu Verifikasi</button>
+            <button class="bg-white text-slate-600 hover:text-slate-900 px-4 py-2 rounded-full border border-slate-200 transition">🚚 Sedang Dikirim</button>
+            <button class="bg-white text-slate-600 hover:text-slate-900 px-4 py-2 rounded-full border border-slate-200 transition">✓ Selesai</button>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-slate-50 text-slate-400 text-[11px] font-bold uppercase tracking-wider border-b border-slate-200/60">
+                        <tr>
+                            <th class="py-4 px-6">ID / Waktu</th>
+                            <th class="py-4 px-6">Pelanggan</th>
+                            <th class="py-4 px-6">Detail Pesanan Parfum</th>
+                            <th class="py-4 px-6">Total Bayar</th>
+                            <th class="py-4 px-6">Status Operasional</th>
+                            <th class="py-4 px-6 text-right">Tindakan Pengelola</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabel-pesanan-body" class="divide-y divide-slate-100 font-medium text-slate-700">
+                        
+                        <tr class="hover:bg-slate-50/40 transition">
+                            <td class="py-4 px-6">
+                                <span class="font-bold text-slate-900 block">#TRX-96540</span>
+                                <span class="text-[10px] text-slate-400 block mt-0.5 font-mono">11/07/2026 15:30</span>
+                            </td>
+                            <td class="py-4 px-6">
+                                <span class="font-bold text-slate-900 block">Dwifi Parizza</span>
+                                <span class="text-xs text-slate-400 block mt-0.5">dwifi@gmail.com</span>
+                            </td>
+                            <td class="py-4 px-6 text-xs">
+                                <ul class="list-disc list-inside space-y-0.5">
+                                    <li>Bleu de Chanel (5 ml) x2</li>
+                                    <li>Black Opium (2 ml) x1</li>
+                                </ul>
+                            </td>
+                            <td class="py-4 px-6 font-bold text-slate-900">Rp135.000</td>
+                            <td class="py-4 px-6">
+                                <span class="bg-amber-50 text-amber-700 border border-amber-200 px-2.5 py-1 text-xs rounded-full font-semibold">⏳ Menunggu Verifikasi</span>
+                            </td>
+                            <td class="py-4 px-6 text-right">
+                                <div class="flex justify-end gap-2">
+                                    <button onclick="bukaModalResi(96540)" class="bg-emerald-600 text-white text-xs px-3 py-1.5 rounded-xl hover:bg-emerald-700 transition font-semibold shadow-sm">✓ Proses & Kirim</button>
+                                    <button onclick="batalkanPesanan(96540)" class="bg-slate-50 border border-slate-200 text-red-500 text-xs px-3 py-1.5 rounded-xl hover:bg-red-50 transition font-semibold">Tolak</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-slate-50/40 transition">
+                            <td class="py-4 px-6">
+                                <span class="font-bold text-slate-900 block">#TRX-95112</span>
+                                <span class="text-[10px] text-slate-400 block mt-0.5 font-mono">10/07/2026 11:20</span>
+                            </td>
+                            <td class="py-4 px-6">
+                                <span class="font-bold text-slate-900 block">Tri Sela M.</span>
+                                <span class="text-xs text-slate-400 block mt-0.5">sela@gmail.com</span>
+                            </td>
+                            <td class="py-4 px-6 text-xs">
+                                <ul class="list-disc list-inside space-y-0.5">
+                                    <li>Baccarat Rouge 540 (10 ml) x1</li>
+                                </ul>
+                            </td>
+                            <td class="py-4 px-6 font-bold text-slate-900">Rp98.000</td>
+                            <td class="py-4 px-6">
+                                <span class="bg-blue-50 text-blue-700 border border-blue-200 px-2.5 py-1 text-xs rounded-full font-semibold">🚚 Sedang Dikirim</span>
+                            </td>
+                            <td class="py-4 px-6 text-right">
+                                <div class="space-y-1 text-right">
+                                    <span class="text-xs font-mono bg-slate-100 px-2 py-1 rounded border border-slate-200 text-slate-600 inline-block">JNE: 882910293112</span>
+                                    <button onclick="tandaiSelesai(95112)" class="text-[11px] text-emerald-600 hover:underline block font-bold text-right w-full">Tandai Selesai ✓</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <div id="modal-resi" class="hidden fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md p-6 rounded-2xl border border-slate-200 shadow-xl space-y-4">
+            <div>
+                <h3 class="font-bold text-lg text-slate-900">Input Resi & Konfirmasi Pengiriman</h3>
+                <p class="text-xs text-slate-500">Ubah status transaksi <strong id="resi-txt-target">#TRX</strong> menjadi dikirim dengan menginput kode ekspedisi kurir resmi.</p>
+            </div>
+            
+            <form id="form-resi" action="/api/admin/pesanan/kirim" method="POST" class="space-y-3">
+                <input type="hidden" name="id_penjualan" id="input-resi-id">
+                
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Kurir & Nomor Resi Pengiriman</label>
+                    <input type="text" name="no_resi" placeholder="Contoh: JNE-882910293112 / POS-99231" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-slate-900 font-mono" required>
+                </div>
+
+                <div class="flex gap-2 pt-2 justify-end text-xs font-semibold">
+                    <button type="button" onclick="tutupModalResi()" class="px-4 py-2 text-slate-500 hover:text-slate-800">Batal</button>
+                    <button type="submit" class="px-5 py-2.5 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition shadow-sm">Konfirmasi Pengiriman</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function bukaModalResi(id) {
+            document.getElementById('input-resi-id').value = id;
+            document.getElementById('resi-txt-target').innerText = "#TRX-" + id;
+            document.getElementById('modal-resi').classList.remove('hidden');
+        }
+
+        function tutupModalResi() {
+            document.getElementById('modal-resi').classList.add('hidden');
+        }
+
+        function batalkanPesanan(id) {
+            if (confirm(`Apakah Anda yakin ingin menolak transaksi #TRX-${id}? Tindakan ini akan membatalkan pemesanan.`)) {
+                window.location.href = `/api/admin/pesanan/tolak/${id}`;
+            }
+        }
+
+        function tandaiSelesai(id) {
+            if (confirm(`Tandai transaksi #TRX-${id} sebagai selesai (Paket telah sukses diterima oleh pembeli)?`)) {
+                window.location.href = `/api/admin/pesanan/selesai/${id}`;
+            }
+        }
+    </script>
+</body>
+</html>

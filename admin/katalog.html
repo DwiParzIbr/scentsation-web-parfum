@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Katalog - Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 flex flex-col md:flex-row min-h-screen">
+
+    <aside class="w-full md:w-64 bg-slate-900 text-slate-400 p-6 flex flex-col justify-between flex-shrink-0">
+        <div class="space-y-8">
+            <div class="text-white font-bold text-xl tracking-wider border-b border-slate-800 pb-4">
+                👑 SCENTSATION <span class="text-xs text-amber-500 block font-normal mt-0.5">Admin Panel</span>
+            </div>
+            <nav class="space-y-2 text-sm">
+                <a href="#" class="flex items-center gap-3 hover:text-white hover:bg-slate-800 px-4 py-3 rounded-xl transition">
+                    📊 Ringkasan Dasbor
+                </a>
+                <a href="parfum.html" class="flex items-center gap-3 hover:text-white hover:bg-slate-800 px-4 py-3 rounded-xl transition">
+                    💧 Stok Parfum Utama
+                </a>
+                <a href="katalog.html" class="flex items-center gap-3 text-white bg-slate-800 px-4 py-3 rounded-xl font-semibold">
+                    🏷️ Manajemen Katalog
+                </a>
+                <a href="produk.html" class="flex items-center gap-3 hover:text-white hover:bg-slate-800 px-4 py-3 rounded-xl transition">
+                    ⚙️ Pengaturan Varian
+                </a>
+                <a href="pesanan.html" class="flex items-center gap-3 hover:text-white hover:bg-slate-800 px-4 py-3 rounded-xl transition">
+                    🛍️ Pesanan Masuk
+                </a>
+            </nav>
+        </div>
+        <div class="pt-6 border-t border-slate-800 text-xs text-slate-500">
+            Logged in as: <strong class="text-slate-300">Admin Utama</strong>
+            <a href="/auth/logout" class="block mt-2 text-red-400 hover:underline">Keluar Halaman Admin</a>
+        </div>
+    </aside>
+
+    <main class="flex-grow p-6 sm:p-10 space-y-6 max-h-screen overflow-y-auto">
+        
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div>
+                <h1 class="text-2xl font-bold text-slate-900">Katalog Produk Jual</h1>
+                <p class="text-xs text-slate-500">Kelola item parfum yang akan tampil di etalase halaman depan pembeli.</p>
+            </div>
+            <button onclick="bukaModalKatalog('tambah')" class="bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-xl hover:bg-slate-800 transition shadow-sm">
+                + Tambah Item Katalog
+            </button>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                    <thead class="bg-slate-50 text-slate-400 text-[11px] font-bold uppercase tracking-wider border-b border-slate-200/60">
+                        <tr>
+                            <th class="py-4 px-6">Gambar / Produk</th>
+                            <th class="py-4 px-6">Kategori Merek</th>
+                            <th class="py-4 px-6">Deskripsi Vibe</th>
+                            <th class="py-4 px-6">Status Tampil</th>
+                            <th class="py-4 px-6 text-right">Aksi Manajemen</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabel-katalog-body" class="divide-y divide-slate-100 font-medium text-slate-700">
+                        
+                        <tr class="hover:bg-slate-50/40 transition">
+                            <td class="py-4 px-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center border border-slate-200 font-bold text-xs text-slate-400">IMG</div>
+                                    <div>
+                                        <span class="font-bold text-slate-900 block">Bleu de Chanel</span>
+                                        <span class="text-[11px] text-slate-400 block font-mono">ID: BDC-01</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-4 px-6 text-slate-600">Chanel</td>
+                            <td class="py-4 px-6 text-xs text-slate-500 max-w-xs truncate">Fresh, Woody, Citrus mewah untuk pria formal.</td>
+                            <td class="py-4 px-6">
+                                <span class="bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 text-xs rounded-full font-semibold">Aktif</span>
+                            </td>
+                            <td class="py-4 px-6 text-right space-x-3">
+                                <button onclick="bukaModalKatalog('edit', 'BDC-01', 'Bleu de Chanel', 'Chanel', 'Fresh, Woody, Citrus mewah untuk pria formal.', 'aktif')" class="text-xs text-slate-500 hover:text-slate-900 font-bold">Edit</button>
+                                <button onclick="konfirmasiHapus('BDC-01')" class="text-xs text-red-500 hover:text-red-700 font-bold">Hapus</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <div id="modal-katalog" class="hidden fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-md p-6 rounded-2xl border border-slate-200 shadow-xl space-y-4">
+            <div>
+                <h3 id="modal-title" class="font-bold text-lg text-slate-900">Tambah Item Katalog Baru</h3>
+                <p class="text-xs text-slate-400">Isi data visual parfum untuk memikat pembeli di halaman utama.</p>
+            </div>
+            
+            <form id="form-katalog" action="/api/admin/katalog" method="POST" class="space-y-3">
+                <input type="hidden" name="id_katalog" id="input-id-katalog">
+
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Nama Parfum</label>
+                    <input type="text" name="nama_parfum" id="input-nama" placeholder="Contoh: Bleu de Chanel" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-slate-900" required>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Merek / Brand</label>
+                    <input type="text" name="brand" id="input-brand" placeholder="Contoh: Chanel" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-slate-900" required>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Deskripsi & Aroma Vibe</label>
+                    <textarea name="deskripsi" id="input-deskripsi" rows="3" placeholder="Gambarkan nuansa wanginya..." class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-slate-900 resize-none" required></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Status Tampilan</label>
+                    <select name="status" id="select-status" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-slate-900" required>
+                        <option value="aktif">Aktif (Tampilkan di Etalase)</option>
+                        <option value="nonaktif">Nonaktif (Sembunyikan)</option>
+                    </select>
+                </div>
+
+                <div class="flex gap-2 pt-2 justify-end text-xs font-semibold">
+                    <button type="button" onclick="tutupModalKatalog()" class="px-4 py-2 text-slate-500 hover:text-slate-800">Batal</button>
+                    <button type="submit" class="px-5 py-2.5 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition shadow-sm">Simpan Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function bukaModalKatalog(mode = 'tambah', id = '', nama = '', brand = '', deskripsi = '', status = 'aktif') {
+            const form = document.getElementById('form-katalog');
+            const title = document.getElementById('modal-title');
+            
+            if (mode === 'edit') {
+                title.innerText = "Ubah Data Item Katalog";
+                form.action = "/api/admin/katalog/update";
+                
+                document.getElementById('input-id-katalog').value = id;
+                document.getElementById('input-nama').value = nama;
+                document.getElementById('input-brand').value = brand;
+                document.getElementById('input-deskripsi').value = deskripsi;
+                document.getElementById('select-status').value = status;
+            } else {
+                title.innerText = "Tambah Item Katalog Baru";
+                form.action = "/api/admin/katalog/tambah";
+                form.reset();
+                document.getElementById('input-id-katalog').value = '';
+            }
+            
+            document.getElementById('modal-katalog').classList.remove('hidden');
+        }
+
+        function tutupModalKatalog() {
+            document.getElementById('modal-katalog').classList.add('hidden');
+        }
+
+        function konfirmasiHapus(id) {
+            if (confirm(`Apakah Anda yakin ingin menghapus item katalog dengan ID ${id} ini?`)) {
+                window.location.href = `/api/admin/katalog/hapus/${id}`;
+            }
+        }
+    </script>
+</body>
+</html>
