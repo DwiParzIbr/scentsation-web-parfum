@@ -2,21 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
 body {
   font-family: var(--font-sans), 'Plus Jakarta Sans', sans-serif;
   background-color: #f8fafc;
   color: #1e293b;
   min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
-  overflow-x: hidden !important;
-  max-width: 100% !important;
-  width: 100% !important;
-  position: relative;
-}
-
-main {
-  max-width: 100% !important;
   overflow-x: hidden;
 }
 
