@@ -60,13 +60,13 @@ export default function AdminParfumPage() {
   const [stokBotolInduk, setStokBotolInduk] = useState<number>(2);
   const [sisaVolumeMl, setSisaVolumeMl] = useState<number>(200);
   const [targetMarginPct, setTargetMarginPct] = useState<number>(50);
-  const [harga2ml, setHarga2ml] = useState<number>(11500);
+  const [harga2ml, setHarga2ml] = useState<number>(12000);
   const [stok2ml, setStok2ml] = useState<number>(100);
   const [harga3ml, setHarga3ml] = useState<number>(15000);
   const [stok3ml, setStok3ml] = useState<number>(66);
-  const [harga5ml, setHarga5ml] = useState<number>(22500);
+  const [harga5ml, setHarga5ml] = useState<number>(23000);
   const [stok5ml, setStok5ml] = useState<number>(40);
-  const [harga10ml, setHarga10ml] = useState<number>(41500);
+  const [harga10ml, setHarga10ml] = useState<number>(42000);
   const [stok10ml, setStok10ml] = useState<number>(20);
 
   const [uploading, setUploading] = useState(false);
@@ -176,13 +176,13 @@ export default function AdminParfumPage() {
     const v5 = p.varian.find((v) => v.ukuranMl === 5);
     const v10 = p.varian.find((v) => v.ukuranMl === 10);
 
-    setHarga2ml(v2 ? v2.harga : 11500);
+    setHarga2ml(v2 ? Math.ceil(v2.harga / 1000) * 1000 : 12000);
     setStok2ml(Math.floor(currentSisa / 2));
-    setHarga3ml(v3 ? v3.harga : 15000);
+    setHarga3ml(v3 ? Math.ceil(v3.harga / 1000) * 1000 : 15000);
     setStok3ml(Math.floor(currentSisa / 3));
-    setHarga5ml(v5 ? v5.harga : 22500);
+    setHarga5ml(v5 ? Math.ceil(v5.harga / 1000) * 1000 : 23000);
     setStok5ml(Math.floor(currentSisa / 5));
-    setHarga10ml(v10 ? v10.harga : 41500);
+    setHarga10ml(v10 ? Math.ceil(v10.harga / 1000) * 1000 : 42000);
     setStok10ml(Math.floor(currentSisa / 10));
 
     setIsModalOpen(true);
@@ -195,7 +195,7 @@ export default function AdminParfumPage() {
 
     setUploading(true);
 
-    // Client-side FileReader fallback for instant local preview
+    // Local Preview
     const reader = new FileReader();
     reader.onload = (event) => {
       if (event.target?.result) {
@@ -234,11 +234,16 @@ export default function AdminParfumPage() {
       base: baseNotes.split(',').map((s) => s.trim()).filter(Boolean),
     };
 
+    const finalHarga2ml = Math.ceil(Number(harga2ml) / 1000) * 1000;
+    const finalHarga3ml = Math.ceil(Number(harga3ml) / 1000) * 1000;
+    const finalHarga5ml = Math.ceil(Number(harga5ml) / 1000) * 1000;
+    const finalHarga10ml = Math.ceil(Number(harga10ml) / 1000) * 1000;
+
     const varianData = [
-      { ukuran: '2 ml', ukuranMl: 2, harga: Number(harga2ml), stok: Number(stok2ml) },
-      { ukuran: '3 ml', ukuranMl: 3, harga: Number(harga3ml), stok: Number(stok3ml) },
-      { ukuran: '5 ml', ukuranMl: 5, harga: Number(harga5ml), stok: Number(stok5ml) },
-      { ukuran: '10 ml', ukuranMl: 10, harga: Number(harga10ml), stok: Number(stok10ml) },
+      { ukuran: '2 ml', ukuranMl: 2, harga: finalHarga2ml, stok: Number(stok2ml) },
+      { ukuran: '3 ml', ukuranMl: 3, harga: finalHarga3ml, stok: Number(stok3ml) },
+      { ukuran: '5 ml', ukuranMl: 5, harga: finalHarga5ml, stok: Number(stok5ml) },
+      { ukuran: '10 ml', ukuranMl: 10, harga: finalHarga10ml, stok: Number(stok10ml) },
     ];
 
     if (editingParfum) {

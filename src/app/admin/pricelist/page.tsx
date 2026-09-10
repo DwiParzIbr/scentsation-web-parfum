@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 
 export default function AdminPricelistPage() {
-  const { parfums } = useCart();
+  const { parfums, resetParfumsToDefault } = useCart();
 
   // Filters & Customization
   const [selectedBrand, setSelectedBrand] = useState<string>('semua');
@@ -32,6 +32,13 @@ export default function AdminPricelistPage() {
   const [showNotes, setShowNotes] = useState<boolean>(true);
   const [copiedText, setCopiedText] = useState<boolean>(false);
   const [isGeneratingImage, setIsGeneratingImage] = useState<boolean>(false);
+  const [syncToast, setSyncToast] = useState<string>('');
+
+  const handleSyncRoundedPrices = () => {
+    resetParfumsToDefault();
+    setSyncToast('Semua harga berhasil dibulatkan & disinkronkan ke kelipatan Rp 1.000!');
+    setTimeout(() => setSyncToast(''), 3500);
+  };
 
   // Custom text states
   const [titleText, setTitleText] = useState<string>('PRICELIST DECANT PARFUM ORIGINAL');
@@ -215,30 +222,35 @@ export default function AdminPricelistPage() {
             ctx.fillText(`Notes: ${allNotes}`, colX.name + 10, y + 26);
           }
 
-          // Variant Prices
+          // Variant Prices (Bulatkan ke atas kelipatan Rp 1.000)
           const v2 = item.varian.find((v) => v.ukuranMl === 2);
           const v3 = item.varian.find((v) => v.ukuranMl === 3);
           const v5 = item.varian.find((v) => v.ukuranMl === 5);
           const v10 = item.varian.find((v) => v.ukuranMl === 10);
+
+          const p2 = v2 ? Math.ceil(v2.harga / 1000) * 1000 : 0;
+          const p3 = v3 ? Math.ceil(v3.harga / 1000) * 1000 : 0;
+          const p5 = v5 ? Math.ceil(v5.harga / 1000) * 1000 : 0;
+          const p10 = v10 ? Math.ceil(v10.harga / 1000) * 1000 : 0;
 
           ctx.textAlign = 'center';
           ctx.font = 'bold 19px sans-serif';
 
           // 2ml
           ctx.fillStyle = v2 && v2.stok > 0 ? (isDark ? '#fef08a' : '#b45309') : '#94a3b8';
-          ctx.fillText(v2 ? `Rp ${v2.harga.toLocaleString('id-ID')}` : '-', colX.v2, y + 4);
+          ctx.fillText(v2 ? `Rp ${p2.toLocaleString('id-ID')}` : '-', colX.v2, y + 4);
 
           // 3ml
           ctx.fillStyle = v3 && v3.stok > 0 ? (isDark ? '#fef08a' : '#b45309') : '#94a3b8';
-          ctx.fillText(v3 ? `Rp ${v3.harga.toLocaleString('id-ID')}` : '-', colX.v3, y + 4);
+          ctx.fillText(v3 ? `Rp ${p3.toLocaleString('id-ID')}` : '-', colX.v3, y + 4);
 
           // 5ml
           ctx.fillStyle = v5 && v5.stok > 0 ? (isDark ? '#fde047' : '#d97706') : '#94a3b8';
-          ctx.fillText(v5 ? `Rp ${v5.harga.toLocaleString('id-ID')}` : '-', colX.v5, y + 4);
+          ctx.fillText(v5 ? `Rp ${p5.toLocaleString('id-ID')}` : '-', colX.v5, y + 4);
 
           // 10ml
           ctx.fillStyle = v10 && v10.stok > 0 ? (isDark ? '#facc15' : '#b45309') : '#94a3b8';
-          ctx.fillText(v10 ? `Rp ${v10.harga.toLocaleString('id-ID')}` : '-', colX.v10, y + 4);
+          ctx.fillText(v10 ? `Rp ${p10.toLocaleString('id-ID')}` : '-', colX.v10, y + 4);
 
           y += rowHeight;
         });
@@ -285,10 +297,15 @@ export default function AdminPricelistPage() {
     Object.keys(groupedByBrand).forEach((brand) => {
       text += `🏷️ *${brand.toUpperCase()}*\n`;
       groupedByBrand[brand].forEach((p) => {
-        const v2 = p.varian.find((v) => v.ukuranMl === 2)?.harga.toLocaleString('id-ID') || '-';
-        const v3 = p.varian.find((v) => v.ukuranMl === 3)?.harga.toLocaleString('id-ID') || '-';
-        const v5 = p.varian.find((v) => v.ukuranMl === 5)?.harga.toLocaleString('id-ID') || '-';
-        const v10 = p.varian.find((v) => v.ukuranMl === 10)?.harga.toLocaleString('id-ID') || '-';
+        const v2Obj = p.varian.find((v) => v.ukuranMl === 2);
+        const v3Obj = p.varian.find((v) => v.ukuranMl === 3);
+        const v5Obj = p.varian.find((v) => v.ukuranMl === 5);
+        const v10Obj = p.varian.find((v) => v.ukuranMl === 10);
+
+        const v2 = v2Obj ? (Math.ceil(v2Obj.harga / 1000) * 1000).toLocaleString('id-ID') : '-';
+        const v3 = v3Obj ? (Math.ceil(v3Obj.harga / 1000) * 1000).toLocaleString('id-ID') : '-';
+        const v5 = v5Obj ? (Math.ceil(v5Obj.harga / 1000) * 1000).toLocaleString('id-ID') : '-';
+        const v10 = v10Obj ? (Math.ceil(v10Obj.harga / 1000) * 1000).toLocaleString('id-ID') : '-';
 
         text += `• *${p.nama}*\n`;
         text += `   ↳ 2ml: Rp ${v2} | 3ml: Rp ${v3} | 5ml: Rp ${v5} | 10ml: Rp ${v10}\n`;
@@ -359,8 +376,25 @@ export default function AdminPricelistPage() {
               {copiedText ? <CheckCircle2 size={16} /> : <Copy size={16} />}
               <span>{copiedText ? 'Tersalin ke Clipboard!' : 'Salin Format WA'}</span>
             </button>
+
+            <button
+              type="button"
+              onClick={handleSyncRoundedPrices}
+              className="bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold px-4 py-3 rounded-2xl transition flex items-center gap-2 shadow-md"
+              title="Sinkronkan dan bulatkan semua harga decant ke kelipatan Rp 1.000"
+            >
+              <RefreshCw size={16} />
+              <span>Sinkronkan Harga Bulat</span>
+            </button>
           </div>
         </div>
+
+        {syncToast && (
+          <div className="bg-emerald-600 text-white p-3.5 rounded-2xl flex items-center gap-2.5 font-bold text-xs shadow-lg animate-fade-in">
+            <CheckCircle2 size={18} />
+            <span>{syncToast}</span>
+          </div>
+        )}
 
         {/* Customization Options Bar */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -548,7 +582,7 @@ export default function AdminPricelistPage() {
                           {/* 2ml */}
                           <td className="py-3.5 px-4 text-center font-bold">
                             {v2 && v2.stok > 0 ? (
-                              <span className="text-amber-400">Rp {v2.harga.toLocaleString('id-ID')}</span>
+                              <span className="text-amber-400">Rp {(Math.ceil(v2.harga / 1000) * 1000).toLocaleString('id-ID')}</span>
                             ) : (
                               <span className="text-slate-500 text-[10px]">Habis</span>
                             )}
@@ -557,7 +591,7 @@ export default function AdminPricelistPage() {
                           {/* 3ml */}
                           <td className="py-3.5 px-4 text-center font-bold">
                             {v3 && v3.stok > 0 ? (
-                              <span className="text-amber-400">Rp {v3.harga.toLocaleString('id-ID')}</span>
+                              <span className="text-amber-400">Rp {(Math.ceil(v3.harga / 1000) * 1000).toLocaleString('id-ID')}</span>
                             ) : (
                               <span className="text-slate-500 text-[10px]">Habis</span>
                             )}
@@ -566,7 +600,7 @@ export default function AdminPricelistPage() {
                           {/* 5ml */}
                           <td className="py-3.5 px-4 text-center font-bold">
                             {v5 && v5.stok > 0 ? (
-                              <span className="text-amber-400">Rp {v5.harga.toLocaleString('id-ID')}</span>
+                              <span className="text-amber-400">Rp {(Math.ceil(v5.harga / 1000) * 1000).toLocaleString('id-ID')}</span>
                             ) : (
                               <span className="text-slate-500 text-[10px]">Habis</span>
                             )}
@@ -575,7 +609,7 @@ export default function AdminPricelistPage() {
                           {/* 10ml */}
                           <td className="py-3.5 px-4 text-center font-bold">
                             {v10 && v10.stok > 0 ? (
-                              <span className="text-amber-400">Rp {v10.harga.toLocaleString('id-ID')}</span>
+                              <span className="text-amber-400">Rp {(Math.ceil(v10.harga / 1000) * 1000).toLocaleString('id-ID')}</span>
                             ) : (
                               <span className="text-slate-500 text-[10px]">Habis</span>
                             )}

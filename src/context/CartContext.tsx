@@ -191,17 +191,25 @@ export const syncParfumVolumeAndStock = (p: ParfumItem, customSisaMl?: number): 
 
   const updatedVarian = p.varian.map((v) => {
     const maxUnitsFromLiquid = Math.floor(sisaMl / v.ukuranMl);
+    // Pastikan seluruh harga varian selalu bulat kelipatan Rp 1.000 (tanpa pecahan Rp 500)
+    const roundedPrice = Math.ceil(v.harga / 1000) * 1000;
     return {
       ...v,
+      harga: roundedPrice,
       stok: Math.max(0, maxUnitsFromLiquid),
     };
   });
+
+  const lowestPrice = updatedVarian.length > 0
+    ? Math.min(...updatedVarian.map((v) => v.harga))
+    : Math.ceil((p.hargaTerendah || 0) / 1000) * 1000;
 
   return {
     ...p,
     volumeFullOriginal: volFull,
     stokBotolInduk: botolInduk,
     sisaVolumeMl: Math.max(0, sisaMl),
+    hargaTerendah: lowestPrice,
     varian: updatedVarian,
   };
 };
@@ -233,8 +241,9 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
       localStorage.removeItem('scentsation_parfums_v12');
       localStorage.removeItem('scentsation_parfums_v13');
       localStorage.removeItem('scentsation_parfums_v14');
+      localStorage.removeItem('scentsation_parfums_v15');
 
-      const savedParfums = localStorage.getItem('scentsation_parfums_v15');
+      const savedParfums = localStorage.getItem('scentsation_parfums_v16');
       if (savedParfums) {
         const parsed = JSON.parse(savedParfums);
         if (Array.isArray(parsed) && parsed.length >= LIST_PARFUM.length && parsed[0]?.hargaFullOriginal) {
@@ -243,12 +252,12 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         } else {
           const synced = LIST_PARFUM.map((p) => syncParfumVolumeAndStock(p));
           setParfums(synced);
-          localStorage.setItem('scentsation_parfums_v15', JSON.stringify(synced));
+          localStorage.setItem('scentsation_parfums_v16', JSON.stringify(synced));
         }
       } else {
         const synced = LIST_PARFUM.map((p) => syncParfumVolumeAndStock(p));
         setParfums(synced);
-        localStorage.setItem('scentsation_parfums_v15', JSON.stringify(synced));
+        localStorage.setItem('scentsation_parfums_v16', JSON.stringify(synced));
       }
 
       const savedUsers = localStorage.getItem('scentsation_registered_users_v2');
@@ -354,7 +363,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     try {
-      localStorage.setItem('scentsation_parfums_v15', JSON.stringify(parfums));
+      localStorage.setItem('scentsation_parfums_v16', JSON.stringify(parfums));
     } catch (e) {}
   }, [parfums]);
 
@@ -917,15 +926,16 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const resetParfumsToDefault = () => {
-    setParfums(LIST_PARFUM);
+    const synced = LIST_PARFUM.map((p) => syncParfumVolumeAndStock(p));
+    setParfums(synced);
     setBrands(INITIAL_BRANDS);
     setAromaNotes(INITIAL_AROMA_NOTES);
     setCuratedBundles(INITIAL_CURATED_BUNDLES);
     try {
-      localStorage.setItem('scentsation_parfums_v6', JSON.stringify(LIST_PARFUM));
+      localStorage.setItem('scentsation_parfums_v16', JSON.stringify(synced));
       localStorage.setItem('scentsation_brands', JSON.stringify(INITIAL_BRANDS));
-      localStorage.setItem('scentsation_notes', JSON.stringify(INITIAL_AROMA_NOTES));
-      localStorage.setItem('scentsation_curated_bundles_v1', JSON.stringify(INITIAL_CURATED_BUNDLES));
+      localStorage.setItem('scentsation_notes_v2', JSON.stringify(INITIAL_AROMA_NOTES));
+      localStorage.setItem('scentsation_curated_bundles_v2', JSON.stringify(INITIAL_CURATED_BUNDLES));
     } catch (e) {}
   };
 
