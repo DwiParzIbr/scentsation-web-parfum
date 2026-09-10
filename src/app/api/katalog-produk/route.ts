@@ -19,8 +19,8 @@ function hitungHargaJual(
       ? Math.max(0.1, marginPersen - 0.05)
       : Math.max(0.1, marginPersen - 0.1);
   const hargaJualAkhir = modalDasarDecant * (1 + effectiveMargin);
-  // Pembulatan ke atas kelipatan Rp500 terdekat
-  return Math.ceil(hargaJualAkhir / 500) * 500;
+  // Pembulatan ke atas kelipatan Rp1.000 terdekat
+  return Math.ceil(hargaJualAkhir / 1000) * 1000;
 }
 
 export async function GET() {

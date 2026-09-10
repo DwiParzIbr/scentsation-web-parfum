@@ -54,8 +54,8 @@ export default function AdminKalkulatorPage() {
   const totalModal = modalBahan + rawOps;
   const hargaIdealMatematis = totalModal * (1 + effectiveMarginPct / 100);
   
-  // Pembulatan ke kelipatan Rp500 terdekat untuk angka psikologis retail
-  const rekomendasiJual = Math.ceil(hargaIdealMatematis / 500) * 500;
+  // Pembulatan ke kelipatan Rp1.000 terdekat untuk angka bulat rapi (tanpa pecahan Rp500)
+  const rekomendasiJual = Math.ceil(hargaIdealMatematis / 1000) * 1000;
   const estimasiProfit = rekomendasiJual - totalModal;
 
   // Visual chart proportions
@@ -265,7 +265,7 @@ export default function AdminKalkulatorPage() {
             </div>
 
             <div className="flex justify-between items-center py-2.5 border-b border-slate-100 bg-amber-50/70 px-3 rounded-xl">
-              <span className="font-bold text-amber-900">Rekomendasi Jual (Pembulatan Kelipatan Rp500)</span>
+              <span className="font-bold text-amber-900">Rekomendasi Jual (Pembulatan Kelipatan Rp1.000)</span>
               <span className="font-bold text-amber-700 text-sm">
                 Rp {rekomendasiJual.toLocaleString('id-ID')}
               </span>
@@ -410,7 +410,7 @@ export default function AdminKalkulatorPage() {
             const sizeModalBahan = hargaPerMl * size;
             const sizeTotalModal = sizeModalBahan + rawOps;
             const sizeHargaIdeal = sizeTotalModal * (1 + sizeMarginPct / 100);
-            const sizeRekomendasi = Math.ceil(sizeHargaIdeal / 500) * 500;
+            const sizeRekomendasi = Math.ceil(sizeHargaIdeal / 1000) * 1000;
             const isSelected = ukuranDecant === size;
 
             return (
@@ -472,7 +472,7 @@ export default function AdminKalkulatorPage() {
                 const sizeModalBahan = hargaPerMl * size;
                 const sizeTotalModal = sizeModalBahan + rawOps;
                 const sizeHargaIdeal = sizeTotalModal * (1 + sizeMarginPct / 100);
-                const sizeRekomendasi = Math.ceil(sizeHargaIdeal / 500) * 500;
+                const sizeRekomendasi = Math.ceil(sizeHargaIdeal / 1000) * 1000;
                 const sizeProfit = sizeRekomendasi - sizeTotalModal;
                 const isSelected = ukuranDecant === size;
 

@@ -105,10 +105,10 @@ export default function AdminParfumPage() {
     const margin5ml = Math.max(10, baseMargin - 5);
     const margin10ml = Math.max(10, baseMargin - 10);
 
-    const calc2 = Math.ceil(((pricePerMl * 2) + ops) * (1 + margin2ml / 100) / 500) * 500;
-    const calc3 = Math.ceil(((pricePerMl * 3) + ops) * (1 + margin3ml / 100) / 500) * 500;
-    const calc5 = Math.ceil(((pricePerMl * 5) + ops) * (1 + margin5ml / 100) / 500) * 500;
-    const calc10 = Math.ceil(((pricePerMl * 10) + ops) * (1 + margin10ml / 100) / 500) * 500;
+    const calc2 = Math.ceil(((pricePerMl * 2) + ops) * (1 + margin2ml / 100) / 1000) * 1000;
+    const calc3 = Math.ceil(((pricePerMl * 3) + ops) * (1 + margin3ml / 100) / 1000) * 1000;
+    const calc5 = Math.ceil(((pricePerMl * 5) + ops) * (1 + margin5ml / 100) / 1000) * 1000;
+    const calc10 = Math.ceil(((pricePerMl * 10) + ops) * (1 + margin10ml / 100) / 1000) * 1000;
 
     setHarga2ml(calc2);
     setHarga3ml(calc3);
@@ -142,13 +142,13 @@ export default function AdminParfumPage() {
     setStokBotolInduk(2);
     setSisaVolumeMl(200);
     setTargetMarginPct(50);
-    setHarga2ml(11500);
+    setHarga2ml(14000);
     setStok2ml(100);
-    setHarga3ml(15000);
+    setHarga3ml(18000);
     setStok3ml(66);
-    setHarga5ml(22500);
+    setHarga5ml(24000);
     setStok5ml(40);
-    setHarga10ml(41500);
+    setHarga10ml(41000);
     setStok10ml(20);
     setIsModalOpen(true);
   };

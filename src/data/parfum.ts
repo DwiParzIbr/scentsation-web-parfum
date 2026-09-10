@@ -129,12 +129,12 @@ export const LIST_PARFUM: ParfumItem[] = [
       base: ['Cedarwood', 'Vetiver', 'Musk']
     },
     varian: [
-      { ukuran: '2 ml', ukuranMl: 2, harga: 17500, stok: 35 },
+      { ukuran: '2 ml', ukuranMl: 2, harga: 18000, stok: 35 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 23000, stok: 28 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 33500, stok: 20 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 58500, stok: 15 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 34000, stok: 20 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 59000, stok: 15 }
     ],
-    hargaTerendah: 17500,
+    hargaTerendah: 18000,
     hargaFullOriginal: 375000
   },
   {
@@ -152,12 +152,12 @@ export const LIST_PARFUM: ParfumItem[] = [
       base: ['White Amber', 'Driftwood']
     },
     varian: [
-      { ukuran: '2 ml', ukuranMl: 2, harga: 17500, stok: 40 },
+      { ukuran: '2 ml', ukuranMl: 2, harga: 18000, stok: 40 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 23000, stok: 30 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 33500, stok: 25 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 58500, stok: 18 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 34000, stok: 25 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 59000, stok: 18 }
     ],
-    hargaTerendah: 17500,
+    hargaTerendah: 18000,
     hargaFullOriginal: 375000
   },
   {
@@ -177,8 +177,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 16000, stok: 35 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 21000, stok: 28 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 29500, stok: 30 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 51500, stok: 20 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 30000, stok: 30 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 52000, stok: 20 }
     ],
     hargaTerendah: 16000,
     hargaFullOriginal: 325000
@@ -198,12 +198,12 @@ export const LIST_PARFUM: ParfumItem[] = [
       base: ['White Musk', 'Amber']
     },
     varian: [
-      { ukuran: '2 ml', ukuranMl: 2, harga: 16500, stok: 32 },
+      { ukuran: '2 ml', ukuranMl: 2, harga: 17000, stok: 32 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 22000, stok: 24 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 31500, stok: 22 },
+      { ukuran: '5 ml', ukuranMl: 5, harga: 32000, stok: 22 },
       { ukuran: '10 ml', ukuranMl: 10, harga: 55000, stok: 16 }
     ],
-    hargaTerendah: 16500,
+    hargaTerendah: 17000,
     hargaFullOriginal: 350000
   },
   {
@@ -222,8 +222,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     },
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 21000, stok: 30 },
-      { ukuran: '3 ml', ukuranMl: 3, harga: 28500, stok: 24 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 42500, stok: 20 },
+      { ukuran: '3 ml', ukuranMl: 3, harga: 29000, stok: 24 },
+      { ukuran: '5 ml', ukuranMl: 5, harga: 43000, stok: 20 },
       { ukuran: '10 ml', ukuranMl: 10, harga: 76000, stok: 12 }
     ],
     hargaTerendah: 21000,
@@ -245,12 +245,12 @@ export const LIST_PARFUM: ParfumItem[] = [
       base: ['Musk', 'Ambroxan']
     },
     varian: [
-      { ukuran: '2 ml', ukuranMl: 2, harga: 14500, stok: 30 },
-      { ukuran: '3 ml', ukuranMl: 3, harga: 19500, stok: 22 },
+      { ukuran: '2 ml', ukuranMl: 2, harga: 15000, stok: 30 },
+      { ukuran: '3 ml', ukuranMl: 3, harga: 20000, stok: 22 },
       { ukuran: '5 ml', ukuranMl: 5, harga: 29000, stok: 18 },
       { ukuran: '10 ml', ukuranMl: 10, harga: 53000, stok: 14 }
     ],
-    hargaTerendah: 14500,
+    hargaTerendah: 15000,
     hargaFullOriginal: 350000
   },
   {
@@ -268,12 +268,12 @@ export const LIST_PARFUM: ParfumItem[] = [
       base: ['Cedarwood', 'Musk']
     },
     varian: [
-      { ukuran: '2 ml', ukuranMl: 2, harga: 8500, stok: 40 },
-      { ukuran: '3 ml', ukuranMl: 3, harga: 10500, stok: 32 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 14500, stok: 35 },
+      { ukuran: '2 ml', ukuranMl: 2, harga: 9000, stok: 40 },
+      { ukuran: '3 ml', ukuranMl: 3, harga: 11000, stok: 32 },
+      { ukuran: '5 ml', ukuranMl: 5, harga: 15000, stok: 35 },
       { ukuran: '10 ml', ukuranMl: 10, harga: 25000, stok: 25 }
     ],
-    hargaTerendah: 8500,
+    hargaTerendah: 9000,
     hargaFullOriginal: 150000
   },
   {
@@ -291,12 +291,12 @@ export const LIST_PARFUM: ParfumItem[] = [
       base: ['Ambergris', 'Musk', 'Patchouli', 'Driftwood']
     },
     varian: [
-      { ukuran: '2 ml', ukuranMl: 2, harga: 23500, stok: 35 },
+      { ukuran: '2 ml', ukuranMl: 2, harga: 24000, stok: 35 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 33000, stok: 28 },
       { ukuran: '5 ml', ukuranMl: 5, harga: 51000, stok: 22 },
       { ukuran: '10 ml', ukuranMl: 10, harga: 95000, stok: 15 }
     ],
-    hargaTerendah: 23500,
+    hargaTerendah: 24000,
     hargaFullOriginal: 650000
   },
   {
@@ -314,12 +314,12 @@ export const LIST_PARFUM: ParfumItem[] = [
       base: ['Ambergris', 'Moss', 'Woodsy Notes', 'Patchouli']
     },
     varian: [
-      { ukuran: '2 ml', ukuranMl: 2, harga: 14500, stok: 30 },
-      { ukuran: '3 ml', ukuranMl: 3, harga: 19500, stok: 24 },
+      { ukuran: '2 ml', ukuranMl: 2, harga: 15000, stok: 30 },
+      { ukuran: '3 ml', ukuranMl: 3, harga: 20000, stok: 24 },
       { ukuran: '5 ml', ukuranMl: 5, harga: 29000, stok: 20 },
       { ukuran: '10 ml', ukuranMl: 10, harga: 53000, stok: 16 }
     ],
-    hargaTerendah: 14500,
+    hargaTerendah: 15000,
     hargaFullOriginal: 350000
   },
   {
@@ -337,12 +337,12 @@ export const LIST_PARFUM: ParfumItem[] = [
       base: ['Cedarwood', 'Amber']
     },
     varian: [
-      { ukuran: '2 ml', ukuranMl: 2, harga: 8500, stok: 40 },
-      { ukuran: '3 ml', ukuranMl: 3, harga: 10500, stok: 30 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 14500, stok: 30 },
+      { ukuran: '2 ml', ukuranMl: 2, harga: 9000, stok: 40 },
+      { ukuran: '3 ml', ukuranMl: 3, harga: 11000, stok: 30 },
+      { ukuran: '5 ml', ukuranMl: 5, harga: 15000, stok: 30 },
       { ukuran: '10 ml', ukuranMl: 10, harga: 25000, stok: 20 }
     ],
-    hargaTerendah: 8500,
+    hargaTerendah: 9000,
     hargaFullOriginal: 150000
   },
   {
@@ -360,12 +360,12 @@ export const LIST_PARFUM: ParfumItem[] = [
       base: ['Ambroxan', 'Akigalawood', 'Cedar', 'Musk']
     },
     varian: [
-      { ukuran: '2 ml', ukuranMl: 2, harga: 14500, stok: 32 },
-      { ukuran: '3 ml', ukuranMl: 3, harga: 19500, stok: 26 },
+      { ukuran: '2 ml', ukuranMl: 2, harga: 15000, stok: 32 },
+      { ukuran: '3 ml', ukuranMl: 3, harga: 20000, stok: 26 },
       { ukuran: '5 ml', ukuranMl: 5, harga: 29000, stok: 25 },
       { ukuran: '10 ml', ukuranMl: 10, harga: 53000, stok: 18 }
     ],
-    hargaTerendah: 14500,
+    hargaTerendah: 15000,
     hargaFullOriginal: 350000
   },
   {
@@ -383,12 +383,12 @@ export const LIST_PARFUM: ParfumItem[] = [
       base: ['Dry Wood', 'Ambergris', 'Caramel', 'Musk']
     },
     varian: [
-      { ukuran: '2 ml', ukuranMl: 2, harga: 20500, stok: 30 },
-      { ukuran: '3 ml', ukuranMl: 3, harga: 28500, stok: 24 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 43500, stok: 20 },
+      { ukuran: '2 ml', ukuranMl: 2, harga: 21000, stok: 30 },
+      { ukuran: '3 ml', ukuranMl: 3, harga: 29000, stok: 24 },
+      { ukuran: '5 ml', ukuranMl: 5, harga: 44000, stok: 20 },
       { ukuran: '10 ml', ukuranMl: 10, harga: 81000, stok: 15 }
     ],
-    hargaTerendah: 20500,
+    hargaTerendah: 21000,
     hargaFullOriginal: 550000
   },
   {
@@ -406,12 +406,12 @@ export const LIST_PARFUM: ParfumItem[] = [
       base: ['Fig', 'Ambrette', 'Amberwood', 'Dates']
     },
     varian: [
-      { ukuran: '2 ml', ukuranMl: 2, harga: 17500, stok: 35 },
+      { ukuran: '2 ml', ukuranMl: 2, harga: 18000, stok: 35 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 24000, stok: 28 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 36500, stok: 22 },
+      { ukuran: '5 ml', ukuranMl: 5, harga: 37000, stok: 22 },
       { ukuran: '10 ml', ukuranMl: 10, harga: 67000, stok: 18 }
     ],
-    hargaTerendah: 17500,
+    hargaTerendah: 18000,
     hargaFullOriginal: 450000
   },
   {
@@ -429,12 +429,12 @@ export const LIST_PARFUM: ParfumItem[] = [
       base: ['Musk', 'Ambrofix™', 'Akigalawood', 'Cedarwood']
     },
     varian: [
-      { ukuran: '2 ml', ukuranMl: 2, harga: 17500, stok: 30 },
+      { ukuran: '2 ml', ukuranMl: 2, harga: 18000, stok: 30 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 24000, stok: 25 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 36500, stok: 20 },
+      { ukuran: '5 ml', ukuranMl: 5, harga: 37000, stok: 20 },
       { ukuran: '10 ml', ukuranMl: 10, harga: 67000, stok: 15 }
     ],
-    hargaTerendah: 17500,
+    hargaTerendah: 18000,
     hargaFullOriginal: 450000
   },
   {
@@ -452,12 +452,12 @@ export const LIST_PARFUM: ParfumItem[] = [
       base: ['White Musk', 'Vanilla', 'Praline', 'Amber']
     },
     varian: [
-      { ukuran: '2 ml', ukuranMl: 2, harga: 16500, stok: 28 },
+      { ukuran: '2 ml', ukuranMl: 2, harga: 17000, stok: 28 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 23000, stok: 22 },
       { ukuran: '5 ml', ukuranMl: 5, harga: 35000, stok: 18 },
       { ukuran: '10 ml', ukuranMl: 10, harga: 63000, stok: 12 }
     ],
-    hargaTerendah: 16500,
+    hargaTerendah: 17000,
     hargaFullOriginal: 425000
   },
   {
@@ -544,12 +544,12 @@ export const LIST_PARFUM: ParfumItem[] = [
       base: ['Musk', 'Amber']
     },
     varian: [
-      { ukuran: '2 ml', ukuranMl: 2, harga: 17500, stok: 30 },
+      { ukuran: '2 ml', ukuranMl: 2, harga: 18000, stok: 30 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 24000, stok: 22 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 36500, stok: 18 },
+      { ukuran: '5 ml', ukuranMl: 5, harga: 37000, stok: 18 },
       { ukuran: '10 ml', ukuranMl: 10, harga: 67000, stok: 14 }
     ],
-    hargaTerendah: 17500,
+    hargaTerendah: 18000,
     hargaFullOriginal: 450000
   },
   {
@@ -590,12 +590,12 @@ export const LIST_PARFUM: ParfumItem[] = [
       base: ['Oakmoss', 'Musk', 'Ambergris', 'Vanilla']
     },
     varian: [
-      { ukuran: '2 ml', ukuranMl: 2, harga: 25500, stok: 25 },
-      { ukuran: '3 ml', ukuranMl: 3, harga: 35500, stok: 20 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 53500, stok: 16 },
+      { ukuran: '2 ml', ukuranMl: 2, harga: 26000, stok: 25 },
+      { ukuran: '3 ml', ukuranMl: 3, harga: 36000, stok: 20 },
+      { ukuran: '5 ml', ukuranMl: 5, harga: 54000, stok: 16 },
       { ukuran: '10 ml', ukuranMl: 10, harga: 97000, stok: 10 }
     ],
-    hargaTerendah: 25500,
+    hargaTerendah: 26000,
     hargaFullOriginal: 650000
   },
   {
@@ -613,12 +613,12 @@ export const LIST_PARFUM: ParfumItem[] = [
       base: ['Musk', 'Oakmoss', 'Ambergris', 'Vanilla']
     },
     varian: [
-      { ukuran: '2 ml', ukuranMl: 2, harga: 20500, stok: 30 },
-      { ukuran: '3 ml', ukuranMl: 3, harga: 28500, stok: 22 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 43500, stok: 20 },
+      { ukuran: '2 ml', ukuranMl: 2, harga: 21000, stok: 30 },
+      { ukuran: '3 ml', ukuranMl: 3, harga: 29000, stok: 22 },
+      { ukuran: '5 ml', ukuranMl: 5, harga: 44000, stok: 20 },
       { ukuran: '10 ml', ukuranMl: 10, harga: 81000, stok: 15 }
     ],
-    hargaTerendah: 20500,
+    hargaTerendah: 21000,
     hargaFullOriginal: 550000
   }
 ];
@@ -667,14 +667,14 @@ export const INITIAL_TRANSAKSI: TransaksiItem[] = [
         nama: '9PM Rebel',
         brand: 'Afnan',
         ukuranMl: 10,
-        harga: 86500,
+        harga: 87000,
         jumlah: 1,
         image: 'https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=800&q=80'
       }
     ],
-    subtotal: 86500,
+    subtotal: 87000,
     ongkir: 12000,
-    total: 98500,
+    total: 99000,
     metodePembayaran: 'BCA Virtual Account',
     status: 'Selesai',
     resi: 'JNE-882910293112',
