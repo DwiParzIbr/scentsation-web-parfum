@@ -231,8 +231,9 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
       localStorage.removeItem('scentsation_parfums_v10');
       localStorage.removeItem('scentsation_parfums_v11');
       localStorage.removeItem('scentsation_parfums_v12');
+      localStorage.removeItem('scentsation_parfums_v13');
 
-      const savedParfums = localStorage.getItem('scentsation_parfums_v13');
+      const savedParfums = localStorage.getItem('scentsation_parfums_v14');
       if (savedParfums) {
         const parsed = JSON.parse(savedParfums);
         if (Array.isArray(parsed) && parsed.length >= LIST_PARFUM.length && parsed[0]?.hargaFullOriginal) {
@@ -241,12 +242,12 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         } else {
           const synced = LIST_PARFUM.map((p) => syncParfumVolumeAndStock(p));
           setParfums(synced);
-          localStorage.setItem('scentsation_parfums_v13', JSON.stringify(synced));
+          localStorage.setItem('scentsation_parfums_v14', JSON.stringify(synced));
         }
       } else {
         const synced = LIST_PARFUM.map((p) => syncParfumVolumeAndStock(p));
         setParfums(synced);
-        localStorage.setItem('scentsation_parfums_v13', JSON.stringify(synced));
+        localStorage.setItem('scentsation_parfums_v14', JSON.stringify(synced));
       }
 
       const savedUsers = localStorage.getItem('scentsation_registered_users_v2');
@@ -352,7 +353,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     try {
-      localStorage.setItem('scentsation_parfums_v13', JSON.stringify(parfums));
+      localStorage.setItem('scentsation_parfums_v14', JSON.stringify(parfums));
     } catch (e) {}
   }, [parfums]);
 

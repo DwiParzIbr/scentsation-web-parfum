@@ -90,17 +90,25 @@ export default function AdminParfumPage() {
   };
 
   const autoCalculateDecantPrices = (selectedMargin?: number) => {
-    const marginPctToUse = selectedMargin !== undefined ? selectedMargin : targetMarginPct;
+    const baseMargin = selectedMargin !== undefined ? selectedMargin : targetMarginPct;
     const rawHarga = Number(hargaFullOriginal) || 0;
     const rawVol = Number(volumeFullOriginal) || 100;
     const pricePerMl = rawVol > 0 ? rawHarga / rawVol : 0;
     const ops = 4000;
-    const marginMultiplier = 1 + (Number(marginPctToUse) || 50) / 100;
 
-    const calc2 = Math.ceil(((pricePerMl * 2) + ops) * marginMultiplier / 500) * 500;
-    const calc3 = Math.ceil(((pricePerMl * 3) + ops) * marginMultiplier / 500) * 500;
-    const calc5 = Math.ceil(((pricePerMl * 5) + ops) * marginMultiplier / 500) * 500;
-    const calc10 = Math.ceil(((pricePerMl * 10) + ops) * marginMultiplier / 500) * 500;
+    // Tiered profit margin:
+    // 2ml & 3ml: base margin (default 50%)
+    // 5ml: base margin - 5% (default 45%)
+    // 10ml: base margin - 10% (default 40%)
+    const margin2ml = baseMargin;
+    const margin3ml = baseMargin;
+    const margin5ml = Math.max(10, baseMargin - 5);
+    const margin10ml = Math.max(10, baseMargin - 10);
+
+    const calc2 = Math.ceil(((pricePerMl * 2) + ops) * (1 + margin2ml / 100) / 500) * 500;
+    const calc3 = Math.ceil(((pricePerMl * 3) + ops) * (1 + margin3ml / 100) / 500) * 500;
+    const calc5 = Math.ceil(((pricePerMl * 5) + ops) * (1 + margin5ml / 100) / 500) * 500;
+    const calc10 = Math.ceil(((pricePerMl * 10) + ops) * (1 + margin10ml / 100) / 500) * 500;
 
     setHarga2ml(calc2);
     setHarga3ml(calc3);
@@ -828,13 +836,21 @@ export default function AdminParfumPage() {
 
               {/* Harga & Stok per Varian Decant */}
               <div className="bg-amber-50/60 p-4 rounded-2xl border border-amber-100 space-y-3">
-                <label className="font-bold text-amber-900 block text-xs">
-                  💧 Harga Jual & Stok per Varian Decant
-                </label>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                  <label className="font-bold text-amber-900 block text-xs">
+                    💧 Harga Jual & Stok per Varian Decant
+                  </label>
+                  <span className="text-[10px] text-amber-800 bg-amber-100 px-2 py-0.5 rounded-md font-semibold self-start sm:self-auto">
+                    Margin: 2ml/3ml ({targetMarginPct}%) • 5ml ({Math.max(10, targetMarginPct - 5)}%) • 10ml ({Math.max(10, targetMarginPct - 10)}% Best Value)
+                  </span>
+                </div>
                 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   <div className="bg-white p-3 rounded-xl border border-amber-200 space-y-2">
-                    <span className="font-bold text-slate-900 block border-b pb-1 text-xs">Varian 2 ml</span>
+                    <div className="flex items-center justify-between border-b pb-1">
+                      <span className="font-bold text-slate-900 text-xs">Varian 2 ml</span>
+                      <span className="text-[9px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-bold">{targetMarginPct}%</span>
+                    </div>
                     <div>
                       <label className="text-[10px] text-slate-500 block">Harga (Rp)</label>
                       <input
@@ -856,7 +872,10 @@ export default function AdminParfumPage() {
                   </div>
 
                   <div className="bg-white p-3 rounded-xl border border-amber-200 space-y-2">
-                    <span className="font-bold text-slate-900 block border-b pb-1 text-xs">Varian 3 ml</span>
+                    <div className="flex items-center justify-between border-b pb-1">
+                      <span className="font-bold text-slate-900 text-xs">Varian 3 ml</span>
+                      <span className="text-[9px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded font-bold">{targetMarginPct}%</span>
+                    </div>
                     <div>
                       <label className="text-[10px] text-slate-500 block">Harga (Rp)</label>
                       <input
@@ -878,7 +897,10 @@ export default function AdminParfumPage() {
                   </div>
 
                   <div className="bg-white p-3 rounded-xl border border-amber-200 space-y-2">
-                    <span className="font-bold text-slate-900 block border-b pb-1 text-xs">Varian 5 ml</span>
+                    <div className="flex items-center justify-between border-b pb-1">
+                      <span className="font-bold text-slate-900 text-xs">Varian 5 ml</span>
+                      <span className="text-[9px] bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-bold">{Math.max(10, targetMarginPct - 5)}% (-5%)</span>
+                    </div>
                     <div>
                       <label className="text-[10px] text-slate-500 block">Harga (Rp)</label>
                       <input
@@ -899,8 +921,11 @@ export default function AdminParfumPage() {
                     </div>
                   </div>
 
-                  <div className="bg-white p-3 rounded-xl border border-amber-200 space-y-2">
-                    <span className="font-bold text-slate-900 block border-b pb-1 text-xs">Varian 10 ml</span>
+                  <div className="bg-white p-3 rounded-xl border border-amber-200 space-y-2 ring-1 ring-amber-400">
+                    <div className="flex items-center justify-between border-b pb-1">
+                      <span className="font-bold text-slate-900 text-xs">Varian 10 ml</span>
+                      <span className="text-[9px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-bold">{Math.max(10, targetMarginPct - 10)}% (Best Value)</span>
+                    </div>
                     <div>
                       <label className="text-[10px] text-slate-500 block">Harga (Rp)</label>
                       <input

@@ -131,8 +131,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 17500, stok: 35 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 23000, stok: 28 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 34500, stok: 20 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 62500, stok: 15 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 33500, stok: 20 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 58500, stok: 15 }
     ],
     hargaTerendah: 17500,
     hargaFullOriginal: 375000
@@ -154,8 +154,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 17500, stok: 40 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 23000, stok: 30 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 34500, stok: 25 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 62500, stok: 18 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 33500, stok: 25 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 58500, stok: 18 }
     ],
     hargaTerendah: 17500,
     hargaFullOriginal: 375000
@@ -177,8 +177,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 16000, stok: 35 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 21000, stok: 28 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 30500, stok: 30 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 55000, stok: 20 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 29500, stok: 30 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 51500, stok: 20 }
     ],
     hargaTerendah: 16000,
     hargaFullOriginal: 325000
@@ -200,8 +200,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 16500, stok: 32 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 22000, stok: 24 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 32500, stok: 22 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 58500, stok: 16 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 31500, stok: 22 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 55000, stok: 16 }
     ],
     hargaTerendah: 16500,
     hargaFullOriginal: 350000
@@ -223,8 +223,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 21000, stok: 30 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 28500, stok: 24 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 43500, stok: 20 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 81000, stok: 12 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 42500, stok: 20 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 76000, stok: 12 }
     ],
     hargaTerendah: 21000,
     hargaFullOriginal: 750000,
@@ -247,8 +247,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 14500, stok: 30 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 19500, stok: 22 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 30000, stok: 18 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 56500, stok: 14 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 29000, stok: 18 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 53000, stok: 14 }
     ],
     hargaTerendah: 14500,
     hargaFullOriginal: 350000
@@ -270,8 +270,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 8500, stok: 40 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 10500, stok: 32 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 15000, stok: 35 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 26500, stok: 25 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 14500, stok: 35 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 25000, stok: 25 }
     ],
     hargaTerendah: 8500,
     hargaFullOriginal: 150000
@@ -293,8 +293,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 23500, stok: 35 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 33000, stok: 28 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 52500, stok: 22 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 101500, stok: 15 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 51000, stok: 22 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 95000, stok: 15 }
     ],
     hargaTerendah: 23500,
     hargaFullOriginal: 650000
@@ -316,8 +316,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 14500, stok: 30 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 19500, stok: 24 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 30000, stok: 20 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 56500, stok: 16 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 29000, stok: 20 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 53000, stok: 16 }
     ],
     hargaTerendah: 14500,
     hargaFullOriginal: 350000
@@ -339,8 +339,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 8500, stok: 40 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 10500, stok: 30 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 15000, stok: 30 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 26500, stok: 20 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 14500, stok: 30 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 25000, stok: 20 }
     ],
     hargaTerendah: 8500,
     hargaFullOriginal: 150000
@@ -362,8 +362,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 14500, stok: 32 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 19500, stok: 26 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 30000, stok: 25 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 56500, stok: 18 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 29000, stok: 25 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 53000, stok: 18 }
     ],
     hargaTerendah: 14500,
     hargaFullOriginal: 350000
@@ -385,8 +385,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 20500, stok: 30 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 28500, stok: 24 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 45000, stok: 20 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 86500, stok: 15 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 43500, stok: 20 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 81000, stok: 15 }
     ],
     hargaTerendah: 20500,
     hargaFullOriginal: 550000
@@ -408,8 +408,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 17500, stok: 35 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 24000, stok: 28 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 37500, stok: 22 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 71500, stok: 18 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 36500, stok: 22 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 67000, stok: 18 }
     ],
     hargaTerendah: 17500,
     hargaFullOriginal: 450000
@@ -431,8 +431,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 17500, stok: 30 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 24000, stok: 25 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 37500, stok: 20 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 71500, stok: 15 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 36500, stok: 20 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 67000, stok: 15 }
     ],
     hargaTerendah: 17500,
     hargaFullOriginal: 450000
@@ -454,8 +454,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 16500, stok: 28 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 23000, stok: 22 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 36000, stok: 18 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 67500, stok: 12 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 35000, stok: 18 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 63000, stok: 12 }
     ],
     hargaTerendah: 16500,
     hargaFullOriginal: 425000
@@ -477,8 +477,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 16000, stok: 32 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 22000, stok: 26 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 34000, stok: 20 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 64000, stok: 14 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 33000, stok: 20 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 60000, stok: 14 }
     ],
     hargaTerendah: 16000,
     hargaFullOriginal: 400000
@@ -500,8 +500,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 16000, stok: 30 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 22000, stok: 24 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 34000, stok: 20 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 64000, stok: 15 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 33000, stok: 20 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 60000, stok: 15 }
     ],
     hargaTerendah: 16000,
     hargaFullOriginal: 400000
@@ -523,8 +523,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 16000, stok: 32 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 22000, stok: 25 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 34000, stok: 22 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 64000, stok: 16 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 33000, stok: 22 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 60000, stok: 16 }
     ],
     hargaTerendah: 16000,
     hargaFullOriginal: 400000
@@ -546,8 +546,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 17500, stok: 30 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 24000, stok: 22 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 37500, stok: 18 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 71500, stok: 14 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 36500, stok: 18 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 67000, stok: 14 }
     ],
     hargaTerendah: 17500,
     hargaFullOriginal: 450000
@@ -569,8 +569,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 18000, stok: 32 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 24000, stok: 25 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 36000, stok: 20 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 66000, stok: 15 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 35000, stok: 20 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 62000, stok: 15 }
     ],
     hargaTerendah: 18000,
     hargaFullOriginal: 400000
@@ -592,8 +592,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 25500, stok: 25 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 35500, stok: 20 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 55000, stok: 16 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 103500, stok: 10 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 53500, stok: 16 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 97000, stok: 10 }
     ],
     hargaTerendah: 25500,
     hargaFullOriginal: 650000
@@ -615,8 +615,8 @@ export const LIST_PARFUM: ParfumItem[] = [
     varian: [
       { ukuran: '2 ml', ukuranMl: 2, harga: 20500, stok: 30 },
       { ukuran: '3 ml', ukuranMl: 3, harga: 28500, stok: 22 },
-      { ukuran: '5 ml', ukuranMl: 5, harga: 45000, stok: 20 },
-      { ukuran: '10 ml', ukuranMl: 10, harga: 86500, stok: 15 }
+      { ukuran: '5 ml', ukuranMl: 5, harga: 43500, stok: 20 },
+      { ukuran: '10 ml', ukuranMl: 10, harga: 81000, stok: 15 }
     ],
     hargaTerendah: 20500,
     hargaFullOriginal: 550000

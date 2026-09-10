@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { LIST_PARFUM } from '@/data/parfum';
 
 // Formulasi perhitungan matematika modal dasar & harga jual akhir decant per ml
+// Menggunakan sistem margin berjenjang: 2ml/3ml (marginPersen), 5ml (marginPersen - 5%), 10ml+ (marginPersen - 10%)
 function hitungHargaJual(
   hargaBeliRiil: number,
   volumeAwalMl: number,
@@ -11,7 +12,13 @@ function hitungHargaJual(
 ): number {
   const hargaPerMl = hargaBeliRiil / volumeAwalMl;
   const modalDasarDecant = hargaPerMl * ukuranMl + biayaOperasional;
-  const hargaJualAkhir = modalDasarDecant * (1 + marginPersen);
+  const effectiveMargin =
+    ukuranMl <= 3
+      ? marginPersen
+      : ukuranMl <= 5
+      ? Math.max(0.1, marginPersen - 0.05)
+      : Math.max(0.1, marginPersen - 0.1);
+  const hargaJualAkhir = modalDasarDecant * (1 + effectiveMargin);
   // Pembulatan ke atas kelipatan Rp500 terdekat
   return Math.ceil(hargaJualAkhir / 500) * 500;
 }

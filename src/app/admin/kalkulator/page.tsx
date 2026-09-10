@@ -40,13 +40,19 @@ export default function AdminKalkulatorPage() {
   const rawHargaFull = parseFloat(hargaFull.replace(/\./g, '')) || 0;
   const rawOps = parseFloat(biayaOps.replace(/\./g, '')) || 0;
   const decantMl = Number(ukuranDecant) || 0;
-  const botolFullMl = Number(isiFull) || 1;
   const marginPct = Number(targetMargin) || 0;
 
+  // Tiered Profit Margin Strategy:
+  // 2ml & 3ml: base margin (default 50%)
+  // 5ml: base margin - 5% (default 45%)
+  // 10ml+: base margin - 10% (default 40% Best Value)
+  const effectiveMarginPct = decantMl <= 3 ? marginPct : decantMl <= 5 ? Math.max(10, marginPct - 5) : Math.max(10, marginPct - 10);
+
+  const botolFullMl = Number(isiFull) || 1;
   const hargaPerMl = botolFullMl > 0 ? rawHargaFull / botolFullMl : 0;
   const modalBahan = hargaPerMl * decantMl;
   const totalModal = modalBahan + rawOps;
-  const hargaIdealMatematis = totalModal * (1 + marginPct / 100);
+  const hargaIdealMatematis = totalModal * (1 + effectiveMarginPct / 100);
   
   // Pembulatan ke kelipatan Rp500 terdekat untuk angka psikologis retail
   const rekomendasiJual = Math.ceil(hargaIdealMatematis / 500) * 500;
@@ -197,6 +203,11 @@ export default function AdminKalkulatorPage() {
                   className="w-full accent-amber-600 cursor-pointer h-2 bg-slate-200 rounded-lg"
                 />
               </div>
+              <div className="flex flex-wrap gap-2 pt-2.5 text-[10px]">
+                <span className="bg-slate-100 text-slate-700 px-2 py-0.5 rounded-md font-semibold">2ml/3ml: {targetMargin}%</span>
+                <span className="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-md font-semibold">5ml: {Math.max(10, targetMargin - 5)}% (-5%)</span>
+                <span className="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-md font-semibold">10ml+: {Math.max(10, targetMargin - 10)}% (Best Value -10%)</span>
+              </div>
             </div>
           </div>
         </div>
@@ -236,6 +247,13 @@ export default function AdminKalkulatorPage() {
               <span>Total Modal Pokok</span>
               <span className="text-sm">
                 Rp {Math.round(totalModal).toLocaleString('id-ID')}
+              </span>
+            </div>
+
+            <div className="flex justify-between items-center py-2 border-b border-slate-100 text-slate-600">
+              <span>Target Margin Efektif ({ukuranDecant} ml)</span>
+              <span className="font-bold text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-md text-xs">
+                {effectiveMarginPct}% {ukuranDecant >= 10 ? '✨ Best Value (-10%)' : ukuranDecant >= 5 ? '⚡ Hemat (-5%)' : ''}
               </span>
             </div>
 
@@ -377,7 +395,7 @@ export default function AdminKalkulatorPage() {
               Rekomendasi Harga Jual & Profit (2 ml s/d 50 ml)
             </h2>
             <p className="text-xs text-slate-500 mt-0.5">
-              Simulasi otomatis untuk varian 2, 3, 5, 10, 12, 15, 18, 20, 30, hingga 50 ml berdasarkan Harga Botol (Rp {rawHargaFull.toLocaleString('id-ID')}) & Margin Target ({marginPct}%).
+              Simulasi otomatis sistem margin berjenjang: 2 & 3 ml ({marginPct}%), 5 ml ({Math.max(10, marginPct - 5)}%), serta 10 ml ke atas ({Math.max(10, marginPct - 10)}% - Best Value) untuk mendorong pembelian ukuran lebih besar.
             </p>
           </div>
           <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-xl self-start sm:self-auto">
@@ -388,9 +406,10 @@ export default function AdminKalkulatorPage() {
         {/* Multi-Size Quick Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-10 gap-2.5">
           {[2, 3, 5, 10, 12, 15, 18, 20, 30, 50].map((size) => {
+            const sizeMarginPct = size <= 3 ? marginPct : size <= 5 ? Math.max(10, marginPct - 5) : Math.max(10, marginPct - 10);
             const sizeModalBahan = hargaPerMl * size;
             const sizeTotalModal = sizeModalBahan + rawOps;
-            const sizeHargaIdeal = sizeTotalModal * (1 + marginPct / 100);
+            const sizeHargaIdeal = sizeTotalModal * (1 + sizeMarginPct / 100);
             const sizeRekomendasi = Math.ceil(sizeHargaIdeal / 500) * 500;
             const isSelected = ukuranDecant === size;
 
@@ -409,7 +428,17 @@ export default function AdminKalkulatorPage() {
                   <span className={`text-xs font-extrabold uppercase ${isSelected ? 'text-slate-950' : 'text-amber-700'}`}>
                     {size} ml
                   </span>
-                  {isSelected && <span className="text-[10px] bg-slate-950 text-amber-400 font-bold px-1.5 py-0.5 rounded-full">Aktif</span>}
+                  <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
+                    isSelected
+                      ? 'bg-slate-950 text-amber-400'
+                      : size === 10
+                      ? 'bg-emerald-100 text-emerald-800'
+                      : size === 5
+                      ? 'bg-amber-100 text-amber-800'
+                      : 'bg-slate-200 text-slate-600'
+                  }`}>
+                    {sizeMarginPct}%
+                  </span>
                 </div>
 
                 <div>
@@ -432,15 +461,17 @@ export default function AdminKalkulatorPage() {
                 <th className="py-3 px-4">Modal Bahan (Parfum)</th>
                 <th className="py-3 px-4">Biaya Botol & Ops</th>
                 <th className="py-3 px-4">Total Modal Pokok</th>
+                <th className="py-3 px-4 text-center">Margin Tier</th>
                 <th className="py-3 px-4 text-amber-900 bg-amber-100/60">Rekomendasi Harga Jual</th>
                 <th className="py-3 px-4 text-emerald-900 bg-emerald-100/60">Estimasi Profit Bersih</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 text-slate-800">
               {[2, 3, 5, 10, 12, 15, 18, 20, 30, 50].map((size) => {
+                const sizeMarginPct = size <= 3 ? marginPct : size <= 5 ? Math.max(10, marginPct - 5) : Math.max(10, marginPct - 10);
                 const sizeModalBahan = hargaPerMl * size;
                 const sizeTotalModal = sizeModalBahan + rawOps;
-                const sizeHargaIdeal = sizeTotalModal * (1 + marginPct / 100);
+                const sizeHargaIdeal = sizeTotalModal * (1 + sizeMarginPct / 100);
                 const sizeRekomendasi = Math.ceil(sizeHargaIdeal / 500) * 500;
                 const sizeProfit = sizeRekomendasi - sizeTotalModal;
                 const isSelected = ukuranDecant === size;
@@ -467,6 +498,17 @@ export default function AdminKalkulatorPage() {
                     </td>
                     <td className="py-3.5 px-4 font-semibold text-slate-900">
                       Rp {Math.round(sizeTotalModal).toLocaleString('id-ID')}
+                    </td>
+                    <td className="py-3.5 px-4 text-center">
+                      <span className={`inline-block px-2 py-0.5 rounded-full text-[11px] font-bold ${
+                        size >= 10
+                          ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
+                          : size === 5
+                          ? 'bg-amber-100 text-amber-800 border border-amber-300'
+                          : 'bg-slate-100 text-slate-700'
+                      }`}>
+                        {sizeMarginPct}% {size >= 10 ? '✨ Best Value' : size === 5 ? '⚡ Hemat' : ''}
+                      </span>
                     </td>
                     <td className="py-3.5 px-4 font-bold text-amber-700 bg-amber-50/40 text-sm">
                       Rp {sizeRekomendasi.toLocaleString('id-ID')}
