@@ -362,7 +362,7 @@ export default function AdminKalkulatorPage() {
               Rp {rekomendasiJual.toLocaleString('id-ID')}
             </p>
             <span className="text-[11px] text-amber-400 font-semibold block">
-              Kelipatan Rp 500 terdekat
+              Kelipatan Rp 1.000 terdekat
             </span>
           </div>
           <div className="text-5xl opacity-20">🏷️</div>
