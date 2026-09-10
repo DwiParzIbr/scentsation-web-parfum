@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
-import { ShoppingBag, X, Menu, Trash2, ShieldCheck, ArrowRight, Sparkles, ChevronDown, Gift, Compass, HelpCircle, Sun, Moon, Heart, Ruler, BookOpen } from 'lucide-react';
+import { ShoppingBag, X, Menu, Trash2, ShieldCheck, ArrowRight, Sparkles, ChevronDown, Gift, Compass, HelpCircle, Sun, Moon, Heart, Ruler, BookOpen, User } from 'lucide-react';
 import DecantSizeGuideModal from './DecantSizeGuideModal';
 
 export default function Navbar() {
@@ -31,22 +31,23 @@ export default function Navbar() {
   return (
     <>
       {/* High-End Dark Luxury Navbar */}
-      <nav className="bg-slate-950/95 backdrop-blur-md sticky top-0 z-50 border-b border-amber-500/30 shadow-2xl text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
+      <nav className="bg-slate-950/95 backdrop-blur-md sticky top-0 z-[100] border-b border-amber-500/30 shadow-2xl text-white w-full">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16 items-center gap-2">
             
             {/* Logo */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 shrink min-w-0">
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 rounded-lg text-slate-300 hover:bg-slate-900"
+                className="md:hidden p-1.5 rounded-lg text-slate-300 hover:bg-slate-900 shrink-0"
+                aria-label="Toggle Menu Mobile"
               >
-                {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
               </button>
-              <Link href="/" className="serif-title text-xl sm:text-2xl font-extrabold tracking-wider text-white flex items-center gap-2">
-                <span>SCENTSATION</span>
-                <span className="text-[10px] font-extrabold uppercase font-sans tracking-widest bg-amber-500/20 text-amber-300 border border-amber-500/40 px-2.5 py-0.5 rounded-full shrink-0">
+              <Link href="/" className="serif-title text-base sm:text-2xl font-extrabold tracking-wider text-white flex items-center gap-1.5 shrink min-w-0">
+                <span className="truncate">SCENTSATION</span>
+                <span className="text-[9px] sm:text-[10px] font-extrabold uppercase font-sans tracking-widest bg-amber-500/20 text-amber-300 border border-amber-500/40 px-2 py-0.5 rounded-full shrink-0 hidden xs:inline-block">
                   Decant
                 </span>
               </Link>
@@ -88,10 +89,15 @@ export default function Navbar() {
                 </button>
 
                 {moreDropdownOpen && (
-                  <div
-                    onMouseLeave={() => setMoreDropdownOpen(false)}
-                    className="absolute top-full left-0 w-64 bg-slate-900 border border-amber-500/30 rounded-2xl shadow-2xl p-2 mt-2 space-y-1 z-50 animate-in fade-in zoom-in-95"
-                  >
+                  <>
+                    <div
+                      className="fixed inset-0 z-[105]"
+                      onClick={() => setMoreDropdownOpen(false)}
+                    />
+                    <div
+                      onMouseLeave={() => setMoreDropdownOpen(false)}
+                      className="absolute top-full left-0 w-64 bg-slate-900 border border-amber-500/40 rounded-2xl shadow-2xl p-2 mt-2 space-y-1 z-[110] animate-in fade-in zoom-in-95"
+                    >
                     {moreNavLinks.map((item) => {
                       const Icon = item.icon;
                       const isSubActive = pathname === item.href;
@@ -138,12 +144,13 @@ export default function Navbar() {
                       </div>
                     </button>
                   </div>
+                </>
                 )}
               </div>
             </div>
 
             {/* Right Buttons: Points, Cart & Profile */}
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
               {userProfile.isLoggedIn && (
                 <Link
                   href="/profil"
@@ -159,23 +166,23 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={toggleDarkMode}
-                className="p-2.5 bg-slate-900 border border-slate-800 hover:border-amber-500/50 text-amber-400 rounded-full transition shadow-md"
+                className="p-2 sm:p-2.5 bg-slate-900 border border-slate-800 hover:border-amber-500/50 text-amber-400 rounded-full transition shadow-md shrink-0"
                 aria-label="Toggle Mode Gelap / Terang"
                 title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
               >
-                {darkMode ? <Sun size={16} className="text-amber-400" /> : <Moon size={16} className="text-slate-300" />}
+                {darkMode ? <Sun size={15} className="text-amber-400" /> : <Moon size={15} className="text-slate-300" />}
               </button>
 
               {/* Wishlist Button */}
               <Link
                 href="/wishlist"
-                className="relative p-2.5 bg-slate-900 border border-slate-800 hover:border-red-500/50 text-slate-200 rounded-full transition shadow-md"
+                className="relative p-2 sm:p-2.5 bg-slate-900 border border-slate-800 hover:border-red-500/50 text-slate-200 rounded-full transition shadow-md shrink-0"
                 aria-label="Wishlist Impian"
                 title="Daftar Impian Saya"
               >
-                <Heart className="w-4 h-4 text-red-500 fill-red-500" />
+                <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-500 fill-red-500" />
                 {wishlist.length > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-red-600 text-white text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center border-2 border-slate-950 shadow-md">
+                  <span className="absolute -top-1 -right-1 bg-red-600 text-white text-[9px] sm:text-[10px] font-extrabold w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center border-2 border-slate-950 shadow-md">
                     {wishlist.length}
                   </span>
                 )}
@@ -185,12 +192,12 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setCartOpen(true)}
-                className="relative p-2.5 bg-slate-900 border border-slate-800 hover:border-amber-500/50 text-slate-200 rounded-full transition shadow-md"
+                className="relative p-2 sm:p-2.5 bg-slate-900 border border-slate-800 hover:border-amber-500/50 text-slate-200 rounded-full transition shadow-md shrink-0"
                 aria-label="Keranjang Belanja"
               >
-                <ShoppingBag className="w-4 h-4 text-amber-400" />
+                <ShoppingBag className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
                 {totalItem > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-amber-500 text-slate-950 text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center border-2 border-slate-950 shadow-md animate-pulse">
+                  <span className="absolute -top-1 -right-1 bg-amber-500 text-slate-950 text-[9px] sm:text-[10px] font-extrabold w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center border-2 border-slate-950 shadow-md animate-pulse">
                     {totalItem}
                   </span>
                 )}
@@ -200,17 +207,17 @@ export default function Navbar() {
               {userProfile.isLoggedIn ? (
                 <Link
                   href="/profil"
-                  className="flex items-center gap-2 bg-slate-900 border border-slate-800 hover:border-amber-500/40 px-3 py-1.5 rounded-full transition"
+                  className="flex items-center gap-1.5 sm:gap-2 bg-slate-900 border border-slate-800 hover:border-amber-500/40 px-2.5 sm:px-3 py-1.5 rounded-full transition shrink-0"
                   title="Lihat Profil Saya"
                 >
                   {userProfile.fotoProfil ? (
                     <img
                       src={userProfile.fotoProfil}
                       alt={userProfile.nama}
-                      className="w-6 h-6 rounded-full object-cover border border-amber-400"
+                      className="w-5 h-5 sm:w-6 sm:h-6 rounded-full object-cover border border-amber-400"
                     />
                   ) : (
-                    <div className="w-6 h-6 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center text-[10px] font-extrabold">
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center text-[9px] sm:text-[10px] font-extrabold">
                       {userProfile.nama ? userProfile.nama.substring(0, 2).toUpperCase() : 'SC'}
                     </div>
                   )}
@@ -221,16 +228,18 @@ export default function Navbar() {
               ) : (
                 <Link
                   href="/login"
-                  className="flex items-center gap-1.5 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-extrabold text-xs px-3.5 py-1.5 rounded-full transition shadow-xs"
+                  className="flex items-center gap-1.5 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-extrabold text-xs px-2.5 sm:px-3.5 py-1.5 rounded-full transition shadow-xs shrink-0"
+                  title="Masuk / Daftar Akun"
                 >
-                  <span>Masuk / Daftar</span>
+                  <User size={14} className="sm:hidden" />
+                  <span className="hidden sm:inline">Masuk / Daftar</span>
                 </Link>
               )}
 
               {/* Admin Link shortcut */}
               <Link
                 href="/admin"
-                className="text-[10px] font-bold tracking-wider uppercase text-amber-300 bg-amber-950/60 hover:bg-amber-900/80 border border-amber-500/40 px-2.5 py-1 rounded-lg transition hidden xl:inline-block"
+                className="text-[10px] font-bold tracking-wider uppercase text-amber-300 bg-amber-950/60 hover:bg-amber-900/80 border border-amber-500/40 px-2.5 py-1 rounded-lg transition hidden xl:inline-block shrink-0"
               >
                 Portal Admin
               </Link>
@@ -239,45 +248,89 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Navigation Dropdown */}
+        {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-slate-950 border-b border-amber-500/30 px-4 pt-2 pb-4 space-y-2 text-white">
-            {primaryNavLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block px-3.5 py-2.5 rounded-xl text-xs font-bold ${
-                  pathname === link.href ? 'bg-amber-500 text-slate-950' : 'text-slate-300 hover:bg-slate-900'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-
-            <div className="pt-2 border-t border-slate-800 space-y-1">
-              <span className="text-[10px] font-bold uppercase text-amber-400 px-3 block">Fitur Spesial:</span>
-              {moreNavLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-3.5 py-2 rounded-xl text-xs font-bold ${
-                    pathname === link.href ? 'bg-amber-500 text-slate-950' : 'text-slate-300 hover:bg-slate-900'
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div>
-
-            <Link
-              href="/admin"
+          <div className="md:hidden relative">
+            <div
+              className="fixed inset-0 bg-slate-950/60 backdrop-blur-xs z-40"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3.5 py-2.5 rounded-xl text-xs font-bold text-amber-300 bg-amber-950 border border-amber-500/40 mt-2"
-            >
-              Portal Admin Dashboard
-            </Link>
+            />
+
+            <div className="relative z-50 bg-slate-950 border-b border-amber-500/30 px-4 pt-3 pb-6 space-y-3 text-white shadow-2xl animate-in slide-in-from-top duration-200">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                <span className="text-xs font-extrabold text-amber-400 uppercase tracking-widest">Menu Navigasi</span>
+                <button
+                  type="button"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="p-1 rounded-lg text-slate-400 hover:text-white"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              <div className="space-y-1">
+                {primaryNavLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`block px-3.5 py-2.5 rounded-xl text-xs font-bold ${
+                      pathname === link.href ? 'bg-amber-500 text-slate-950' : 'text-slate-300 hover:bg-slate-900'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+
+              <div className="pt-2 border-t border-slate-800 space-y-1">
+                <span className="text-[10px] font-bold uppercase text-amber-400 px-3 block">Fitur & Layanan:</span>
+                {moreNavLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`block px-3.5 py-2 rounded-xl text-xs font-bold ${
+                      pathname === link.href ? 'bg-amber-500 text-slate-950' : 'text-slate-300 hover:bg-slate-900'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSizeGuideOpen(true);
+                    setMobileMenuOpen(false);
+                  }}
+                  className="w-full text-left block px-3.5 py-2 rounded-xl text-xs font-bold text-slate-300 hover:bg-slate-900"
+                >
+                  📏 Panduan Ukuran Decant (2ml, 3ml, 5ml, 10ml)
+                </button>
+              </div>
+
+              <div className="pt-2 border-t border-slate-800 space-y-2">
+                {!userProfile.isLoggedIn && (
+                  <Link
+                    href="/login"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-extrabold bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-md"
+                  >
+                    <User size={15} />
+                    <span>Masuk atau Daftar Akun</span>
+                  </Link>
+                )}
+
+                <Link
+                  href="/admin"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-center px-3.5 py-2.5 rounded-xl text-xs font-bold text-amber-300 bg-amber-950/80 border border-amber-500/40"
+                >
+                  Portal Admin Dashboard
+                </Link>
+              </div>
+            </div>
           </div>
         )}
       </nav>

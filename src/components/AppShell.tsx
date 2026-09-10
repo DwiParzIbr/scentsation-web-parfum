@@ -15,9 +15,9 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen w-full max-w-full overflow-x-hidden">
       <Navbar />
-      <main className="flex-grow">{children}</main>
+      <main className="flex-grow w-full max-w-full overflow-x-hidden">{children}</main>
       <PreFooterGuarantee />
       <Footer />
     </div>
