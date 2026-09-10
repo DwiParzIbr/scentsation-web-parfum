@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import {
   LayoutDashboard,
   ShoppingBag,
@@ -31,7 +31,35 @@ import { useCart } from '@/context/CartContext';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
   const { darkMode, toggleDarkMode } = useCart();
+  const [isAuthorized, setIsAuthorized] = useState<boolean | null>(null);
+
+  // Check admin authorization on route change
+  useEffect(() => {
+    if (pathname === '/admin/login') {
+      setIsAuthorized(true);
+      return;
+    }
+
+    const auth = typeof window !== 'undefined' ? localStorage.getItem('scentsation_admin_auth') === 'true' : false;
+    if (auth) {
+      setIsAuthorized(true);
+    } else {
+      setIsAuthorized(false);
+      router.replace('/admin/login');
+    }
+  }, [pathname, router]);
+
+  const handleLogout = () => {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('scentsation_admin_auth');
+      sessionStorage.removeItem('scentsation_admin_auth');
+      document.cookie = 'scentsation_admin_session=; path=/; max-age=0';
+    }
+    setIsAuthorized(false);
+    router.replace('/admin/login');
+  };
 
   // Menu Groupings according to user layout specification
   const menuGroups = [
@@ -97,9 +125,19 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     setOpenGroups((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
-  // Hide sidebar on login page
+  // Return login page directly without admin wrapper
   if (pathname === '/admin/login') {
     return <>{children}</>;
+  }
+
+  // Prevent flashing admin dashboard content while verifying or if unauthorized
+  if (!isAuthorized) {
+    return (
+      <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center text-white space-y-4">
+        <div className="w-12 h-12 border-4 border-amber-500/20 border-t-amber-500 rounded-full animate-spin"></div>
+        <p className="text-xs font-bold text-slate-400 tracking-wider uppercase">Memverifikasi Hak Akses Administrator...</p>
+      </div>
+    );
   }
 
   return (
@@ -206,13 +244,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <ArrowLeft size={14} />
             <span>Lihat Website Utama</span>
           </Link>
-          <Link
-            href="/admin/login"
-            className="flex items-center gap-2 text-xs text-red-400 hover:text-red-300 transition px-3 py-2 font-semibold"
+          <button
+            type="button"
+            onClick={handleLogout}
+            className="flex items-center gap-2 text-xs text-red-400 hover:text-red-300 transition px-3 py-2 font-semibold w-full text-left rounded-lg hover:bg-slate-800/40"
           >
             <LogOut size={14} />
             <span>Keluar Admin</span>
-          </Link>
+          </button>
         </div>
       </aside>
 

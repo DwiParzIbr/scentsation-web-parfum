@@ -1,19 +1,52 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Lock, ArrowLeft, Eye, EyeOff, ShieldCheck, Sparkles, KeyRound } from 'lucide-react';
+import { Lock, ArrowLeft, Eye, EyeOff, ShieldCheck, Sparkles, KeyRound, AlertCircle } from 'lucide-react';
+import { useCart } from '@/context/CartContext';
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [username, setUsername] = useState('admin');
-  const [password, setPassword] = useState('admin123');
+  const { registeredUsers } = useCart();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('');
+
+  // If already logged in, redirect directly to admin dashboard
+  useEffect(() => {
+    if (typeof window !== 'undefined' && localStorage.getItem('scentsation_admin_auth') === 'true') {
+      router.replace('/admin');
+    }
+  }, [router]);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    router.push('/admin');
+    setError('');
+
+    const trimmedUser = username.trim();
+    const trimmedPass = password;
+
+    // Check credentials:
+    // 1. Standard superadmin: admin / admin123 or admin / admin12345
+    // 2. Protected admin accounts from registered users (e.g. dfarizibrahim14@gmail.com / admin12345)
+    const isSuperAdmin = trimmedUser === 'admin' && (trimmedPass === 'admin123' || trimmedPass === 'admin12345');
+    const isProtectedUser = registeredUsers.some(
+      (u) =>
+        u.isProtectedAdmin &&
+        (u.email.toLowerCase() === trimmedUser.toLowerCase() || u.nama.toLowerCase() === trimmedUser.toLowerCase()) &&
+        u.password === trimmedPass
+    );
+
+    if (isSuperAdmin || isProtectedUser) {
+      localStorage.setItem('scentsation_admin_auth', 'true');
+      sessionStorage.setItem('scentsation_admin_auth', 'true');
+      document.cookie = 'scentsation_admin_session=true; path=/; max-age=86400; SameSite=Lax';
+      router.replace('/admin');
+    } else {
+      setError('Username atau password administrator salah. Akses ditolak!');
+    }
   };
 
   return (
@@ -37,6 +70,14 @@ export default function AdminLoginPage() {
             <p className="text-xs text-slate-400 mt-1">Masuk ke Portal Pengelolaan Katalog & Stok Decant</p>
           </div>
         </div>
+
+        {/* Error Alert */}
+        {error && (
+          <div className="bg-red-500/15 border border-red-500/40 text-red-300 text-xs px-4 py-3 rounded-xl flex items-center gap-2.5 animate-in fade-in duration-200">
+            <AlertCircle size={16} className="text-red-400 shrink-0" />
+            <span className="font-medium">{error}</span>
+          </div>
+        )}
 
         {/* Form */}
         <form onSubmit={handleLogin} className="space-y-4">

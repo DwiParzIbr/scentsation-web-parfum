@@ -235,14 +235,6 @@ export default function Navbar() {
                   <span className="hidden sm:inline">Masuk / Daftar</span>
                 </Link>
               )}
-
-              {/* Admin Link shortcut */}
-              <Link
-                href="/admin"
-                className="text-[10px] font-bold tracking-wider uppercase text-amber-300 bg-amber-950/60 hover:bg-amber-900/80 border border-amber-500/40 px-2.5 py-1 rounded-lg transition hidden xl:inline-block shrink-0"
-              >
-                Portal Admin
-              </Link>
             </div>
 
           </div>
@@ -321,14 +313,6 @@ export default function Navbar() {
                     <span>Masuk atau Daftar Akun</span>
                   </Link>
                 )}
-
-                <Link
-                  href="/admin"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-center px-3.5 py-2.5 rounded-xl text-xs font-bold text-amber-300 bg-amber-950/80 border border-amber-500/40"
-                >
-                  Portal Admin Dashboard
-                </Link>
               </div>
             </div>
           </div>

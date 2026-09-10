@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ShieldCheck, Droplets, Box, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Droplets, Box } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -67,11 +67,8 @@ export default function Footer() {
         {/* BOTTOM COPYRIGHT */}
         <div className="border-t border-slate-800 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
           <p>&copy; 2026 <strong className="text-amber-400 font-semibold">SCENTSATION DECANT</strong>. All rights reserved.</p>
-          <div className="flex gap-4">
-            <Link href="/admin" className="text-amber-400 hover:underline font-semibold flex items-center gap-1">
-              <span>Portal Admin Login</span>
-              <ArrowRight size={12} />
-            </Link>
+          <div className="flex gap-4 items-center">
+            <span className="text-slate-400">100% Original Authentic Decant Guarantee</span>
           </div>
         </div>
       </div>
